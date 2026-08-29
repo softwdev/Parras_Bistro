@@ -1,0 +1,245 @@
+/* ==========================================================================
+   PARRA'S BISTRO - Mobile First Stylesheet
+   Theme: Warm Terracotta (#c04828), Forest Green (#1e6b52), Parchment Cream (#fbf9f4), Charcoal (#1a1817)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+:root {
+  --primary: #c04828;
+  --primary-hover: #a2381c;
+  --primary-light: #fbeee9;
+  
+  --secondary: #1e6b52;
+  --secondary-hover: #15503d;
+  --secondary-light: #e8f4f0;
+  
+  --accent: #d49b35;
+  --accent-light: #fff8eb;
+  
+  --bg-parchment: #fbf9f4;
+  --bg-card: #ffffff;
+  --bg-dark: #161514;
+  --bg-dark-card: #22201e;
+  
+  --text-main: #2b2725;
+  --text-muted: #6e6762;
+  --text-light: #f7f5f0;
+  
+  --border-color: #eae3d7;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 2px 8px rgba(30, 20, 15, 0.05);
+  --shadow-md: 0 8px 24px rgba(30, 20, 15, 0.08);
+  --shadow-lg: 0 16px 40px rgba(30, 20, 15, 0.12);
+  --shadow-primary: 0 8px 25px rgba(192, 72, 40, 0.25);
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-parchment);
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Add bottom padding on mobile for fixed bottom bar */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(4.2rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-heading);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-parchment);
+}
+::-webkit-scrollbar-thumb {
+  background: #d5cbbe;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Glassmorphism & Header */
+.glass-nav {
+  background: rgba(251, 249, 244, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(220, 210, 195, 0.6);
+}
+
+.mobile-bottom-bar {
+  background: rgba(22, 21, 20, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #a8a29e;
+  font-size: 0.68rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  padding: 6px 0;
+  width: 20%;
+}
+
+.mobile-nav-item i {
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav-item.active,
+.mobile-nav-item:active {
+  color: #ffffff;
+}
+
+.mobile-nav-item.active i {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Category Filter Tabs */
+.menu-tab-btn {
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.menu-tab-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.menu-tab-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(192, 72, 40, 0.3);
+}
+
+/* Compact Dish Card for Mobile Grid */
+.dish-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(192, 72, 40, 0.3);
+}
+
+.dish-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
+  background: #f4efe6;
+}
+
+@media (min-width: 640px) {
+  .dish-img-wrapper {
+    height: 180px;
+  }
+}
+
+.dish-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.dish-card:hover .dish-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.dish-badge-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Promo Horizontal Scroll Slider */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Utility Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Hero Gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(22, 21, 20, 0.88) 0%, rgba(30, 107, 82, 0.65) 100%),
+              url('imagenes/poster.png') center/cover no-repeat;
+}

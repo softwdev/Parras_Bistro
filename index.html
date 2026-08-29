@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Parra's Bistro | Santiago Ixcuintla, Nayarit | Desayunos & Cenas</title>
+  <meta name="description" content="Parra's Bistro - El sabor que reúne a la familia. Pizzas a la leña, hamburguesas smash, cortes de carne, desayunos, pastas, coctelería y catering en Santiago Ixcuintla.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#fbf9f4] text-[#2b2725] antialiased selection:bg-[#c04828] selection:text-white">
+
+  <!-- ==================== HEADER & TOP NAVIGATION ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Brand Logo & Name (Clean, Non-Overlapping Mobile Layout) -->
+        <a href="#" class="flex items-center gap-2.5 group shrink-0">
+          <img src="imagenes/logotipo.jpg" alt="Parra's Bistro Logo" class="h-9 w-9 sm:h-11 sm:w-11 rounded-full border border-[#c04828] object-cover shadow-sm group-hover:scale-105 transition">
+          <div class="flex flex-col">
+            <span class="font-serif text-lg sm:text-2xl font-bold text-stone-900 leading-none tracking-tight">Parra's <span class="text-[#c04828]">Bistro</span></span>
+            <span class="text-[10px] font-semibold text-[#1e6b52] tracking-wider uppercase leading-tight mt-0.5">Desde 2017</span>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="#inicio" class="nav-link text-sm">Inicio</a>
+          <a href="#promociones" class="nav-link text-sm">Promociones</a>
+          <a href="#menu" class="nav-link text-sm">Carta Digital</a>
+          <a href="#catering" class="nav-link text-sm">Catering & Eventos</a>
+          <a href="#reservaciones" class="nav-link text-sm">Reservaciones</a>
+          <a href="#contacto" class="nav-link text-sm">Ubicación</a>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="flex items-center gap-2">
+          <!-- Cart Trigger Button (Desktop & Mobile) -->
+          <button onclick="openCartModal()" class="relative p-2 sm:px-4 sm:py-2 bg-[#c04828] hover:bg-[#a2381c] text-white rounded-full shadow-md transition active:scale-95 flex items-center justify-center gap-2 text-xs font-bold">
+            <i class="fa-solid fa-cart-shopping text-sm"></i>
+            <span class="hidden sm:inline">Pedido</span>
+            <span class="cart-badge-count hidden bg-[#1e6b52] text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border border-white">0</span>
+          </button>
+
+          <!-- Mobile Nav Toggle -->
+          <button onclick="toggleMobileNav()" class="md:hidden p-2 text-stone-700 hover:text-[#c04828] text-lg focus:outline-none">
+            <i class="fa-solid fa-bars" id="menu-icon-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Links -->
+    <div id="mobile-nav" class="hidden md:hidden bg-[#fbf9f4] border-b border-stone-200 px-4 pt-2 pb-4 space-y-2">
+      <a href="#inicio" onclick="toggleMobileNav()" class="block py-2 font-semibold text-stone-800 text-sm hover:text-[#c04828]">Inicio</a>
+      <a href="#promociones" onclick="toggleMobileNav()" class="block py-2 font-semibold text-stone-800 text-sm hover:text-[#c04828]">Promociones del Día</a>
+      <a href="#menu" onclick="toggleMobileNav()" class="block py-2 font-semibold text-stone-800 text-sm hover:text-[#c04828]">Carta Digital</a>
+      <a href="#catering" onclick="toggleMobileNav()" class="block py-2 font-semibold text-stone-800 text-sm hover:text-[#c04828]">Catering & Eventos Privados</a>
+      <a href="#reservaciones" onclick="toggleMobileNav()" class="block py-2 font-semibold text-stone-800 text-sm hover:text-[#c04828]">Reservar Mesa</a>
+      <a href="#contacto" onclick="toggleMobileNav()" class="block py-2 font-semibold text-stone-800 text-sm hover:text-[#c04828]">Ubicación y Horarios</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="inicio" class="relative pt-20 pb-12 sm:pt-32 sm:pb-24 hero-gradient text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center md:text-left max-w-2xl mx-auto md:mx-0 space-y-4">
+        
+        <!-- Live Schedule Badge inside Hero -->
+        <div id="schedule-status-badge" class="inline-flex"></div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+          El sabor que reúne a la <span class="text-amber-400 italic">familia.</span>
+        </h1>
+
+        <p class="text-stone-200 text-xs sm:text-base leading-relaxed max-w-xl">
+          Pizzas a la leña, smash burgers jugosas, cortes finos, desayunos, pastas y coctelería en Santiago Ixcuintla, Nayarit.
+        </p>
+
+        <!-- Compact Action Buttons Grid -->
+        <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2.5 pt-2">
+          <a href="#menu" class="px-4 py-3 bg-[#c04828] hover:bg-[#a2381c] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg transition text-center flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-utensils"></i> Menú
+          </a>
+          <a href="https://wa.me/523111481757" target="_blank" class="px-4 py-3 bg-[#1e6b52] hover:bg-[#15503d] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg transition text-center flex items-center justify-center gap-1.5">
+            <i class="fa-brands fa-whatsapp"></i> Pedir WhatsApp
+          </a>
+          <a href="#catering" class="col-span-2 sm:col-auto px-4 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold text-xs sm:text-sm rounded-xl border border-white/20 transition text-center flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-champagne-glasses"></i> Cotizar Catering
+          </a>
+        </div>
+
+        <!-- Social Badges -->
+        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-4 text-[11px] text-stone-300 font-medium border-t border-white/10">
+          <span><i class="fa-solid fa-thumbs-up text-amber-400"></i> <strong>96% Recomendado</strong> (21+ opiniones)</span>
+          <span><i class="fa-solid fa-users text-amber-400"></i> <strong>9.2K</strong> en Facebook</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== PROMOCIONES DEL DÍA (HORIZONTAL SLIDER ON MOBILE) ==================== -->
+  <section id="promociones" class="py-8 sm:py-14 bg-white border-y border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center justify-between mb-5">
+        <div>
+          <span class="text-[10px] font-extrabold tracking-widest text-[#c04828] uppercase bg-[#fbeee9] px-2.5 py-1 rounded-full">Promociones Semanales</span>
+          <h2 class="font-serif text-xl sm:text-3xl font-bold text-stone-900 mt-1">Días Especiales en Parra's</h2>
+        </div>
+        <span class="text-xs text-stone-500 hidden sm:inline">Desliza para ver más &rarr;</span>
+      </div>
+
+      <!-- Horizontal Swipe Slider on Mobile -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 no-scrollbar md:grid md:grid-cols-3">
+        
+        <!-- Promo Lunes -->
+        <div id="promo-card-tacos" class="snap-center shrink-0 w-[85%] sm:w-auto bg-[#fbf9f4] border border-stone-200 p-4 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="px-2.5 py-0.5 bg-[#1e6b52] text-white text-[10px] font-bold rounded-full">TODOS LOS LUNES</span>
+              <span class="text-xl font-black text-[#c04828]">3x2</span>
+            </div>
+            <img src="imagenes/fotos del lugar y platillos/promo-tacos3x2-lunes.jpg" alt="Promo Tacos 3x2" class="w-full h-32 object-cover rounded-xl mb-2.5 border border-stone-200">
+            <h3 class="font-serif text-base font-bold text-stone-900">Promo Tacos 3x2 🌮</h3>
+            <p class="text-stone-600 text-xs mt-1">Paga 2 y llévate 3 en todos nuestros tacos artesanales.</p>
+          </div>
+          <button onclick="filterCategory('tacos', null); document.getElementById('menu').scrollIntoView();" class="mt-3 w-full py-2 bg-stone-900 text-white font-semibold text-xs rounded-xl hover:bg-[#c04828] transition">Ver Tacos</button>
+        </div>
+
+        <!-- Promo Miércoles -->
+        <div id="promo-card-alitas" class="snap-center shrink-0 w-[85%] sm:w-auto bg-[#fbf9f4] border border-stone-200 p-4 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="px-2.5 py-0.5 bg-[#c04828] text-white text-[10px] font-bold rounded-full">TODOS LOS MIÉRCOLES</span>
+              <span class="text-xl font-black text-[#c04828]">2x1</span>
+            </div>
+            <img src="imagenes/fotos del lugar y platillos/promo-alitas2x1-miercoles.jpg" alt="Promo Alitas 2x1" class="w-full h-32 object-cover rounded-xl mb-2.5 border border-stone-200">
+            <h3 class="font-serif text-base font-bold text-stone-900">Alitas & Boneless 2x1 🍗</h3>
+            <p class="text-stone-600 text-xs mt-1">Alitas crujientes y boneless jugosos al 2x1 en tu salsa preferida.</p>
+          </div>
+          <button onclick="filterCategory('ensaladas', null); document.getElementById('menu').scrollIntoView();" class="mt-3 w-full py-2 bg-stone-900 text-white font-semibold text-xs rounded-xl hover:bg-[#c04828] transition">Ver Boneless</button>
+        </div>
+
+        <!-- Promo Jueves -->
+        <div id="promo-card-pizzas" class="snap-center shrink-0 w-[85%] sm:w-auto bg-[#fbf9f4] border border-stone-200 p-4 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="px-2.5 py-0.5 bg-[#d49b35] text-stone-900 text-[10px] font-bold rounded-full">TODOS LOS JUEVES</span>
+              <span class="text-xl font-black text-[#c04828]">2x1</span>
+            </div>
+            <img src="imagenes/fotos del lugar y platillos/promo-pizzas-2x1-jueves.jpg" alt="Promo Pizzas 2x1" class="w-full h-32 object-cover rounded-xl mb-2.5 border border-stone-200">
+            <h3 class="font-serif text-base font-bold text-stone-900">Jueves de Pizza 2x1 🍕</h3>
+            <p class="text-stone-600 text-xs mt-1">Pizzas a la leña al 2x1. Dos pizzas, el doble de sabor.</p>
+          </div>
+          <button onclick="filterCategory('pizzas', null); document.getElementById('menu').scrollIntoView();" class="mt-3 w-full py-2 bg-stone-900 text-white font-semibold text-xs rounded-xl hover:bg-[#c04828] transition">Ver Pizzas</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARTA DIGITAL & MENÚ (COMPACT NAVIGATION SYSTEM) ==================== -->
+  <section id="menu" class="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-6">
+      <span class="text-[10px] font-extrabold tracking-widest text-[#1e6b52] uppercase bg-[#e8f4f0] px-2.5 py-1 rounded-full">Carta Digital</span>
+      <h2 class="font-serif text-2xl sm:text-4xl font-bold text-stone-900 mt-2">Menú de Desayunos, Cenas & Coctelería</h2>
+    </div>
+
+    <!-- Search Input Bar -->
+    <div class="mb-5 max-w-md mx-auto">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+        <input id="menu-search-input" type="text" placeholder="Buscar platillo, pizza, boneless..." class="w-full pl-9 pr-4 py-2.5 bg-white border border-stone-300 rounded-full text-xs shadow-sm focus:ring-2 focus:ring-[#c04828] outline-none">
+      </div>
+    </div>
+
+    <!-- Category Tabs Filter -->
+    <div class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-6 no-scrollbar justify-start md:justify-center">
+      <button onclick="filterCategory('todos', this)" class="menu-tab-btn active"><i class="fa-solid fa-border-all text-xs"></i> Todos</button>
+      <button onclick="filterCategory('desayunos', this)" class="menu-tab-btn"><i class="fa-solid fa-egg text-xs"></i> Desayunos</button>
+      <button onclick="filterCategory('pizzas', this)" class="menu-tab-btn"><i class="fa-solid fa-pizza-slice text-xs"></i> Pizzas</button>
+      <button onclick="filterCategory('hamburguesas', this)" class="menu-tab-btn"><i class="fa-solid fa-burger text-xs"></i> Smash Burgers</button>
+      <button onclick="filterCategory('cortes', this)" class="menu-tab-btn"><i class="fa-solid fa-drumstick-bite text-xs"></i> Cortes</button>
+      <button onclick="filterCategory('tacos', this)" class="menu-tab-btn"><i class="fa-solid fa-pepper-hot text-xs"></i> Tacos</button>
+      <button onclick="filterCategory('pastas', this)" class="menu-tab-btn"><i class="fa-solid fa-bowl-food text-xs"></i> Pastas</button>
+      <button onclick="filterCategory('ensaladas', this)" class="menu-tab-btn"><i class="fa-solid fa-fire-burner text-xs"></i> Boneless</button>
+      <button onclick="filterCategory('postres', this)" class="menu-tab-btn"><i class="fa-solid fa-cookie text-xs"></i> Postres</button>
+      <button onclick="filterCategory('bebidas', this)" class="menu-tab-btn"><i class="fa-solid fa-wine-glass text-xs"></i> Bebidas</button>
+    </div>
+
+    <!-- Compact 2-Column Mobile Grid -->
+    <div id="menu-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+      <!-- Dynamic Items -->
+    </div>
+
+    <!-- Expand / Show More Container (Keeps page scroll short) -->
+    <div id="menu-expand-container" class="mt-6 text-center"></div>
+
+  </section>
+
+  <!-- ==================== CATERING & EVENTOS PRIVADOS (REACHABLE FAST) ==================== -->
+  <section id="catering" class="py-12 sm:py-20 bg-stone-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Info Column -->
+        <div class="lg:col-span-6 space-y-4">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c04828]/20 text-amber-400 text-[10px] font-bold uppercase tracking-widest border border-[#c04828]/40">
+            ✨ PARRAS BISTRO CATERING
+          </span>
+
+          <h2 class="font-serif text-2xl sm:text-4xl font-extrabold leading-tight">
+            ¿Tienes un evento? <span class="text-[#c04828]">Nosotros llevamos el sabor.</span>
+          </h2>
+
+          <p class="text-stone-300 text-xs sm:text-sm leading-relaxed">
+            Llevamos el sabor de Parra's Bistro hasta ti o reservamos un espacio privado dentro de nuestro restaurante. Menús personalizados y servicio banquetero profesional.
+          </p>
+
+          <!-- Catering Types Grid -->
+          <div class="grid grid-cols-2 gap-2 text-xs font-medium text-stone-200 pt-1">
+            <div class="flex items-center gap-1.5"><i class="fa-solid fa-cake-candles text-amber-400"></i> Cumpleaños</div>
+            <div class="flex items-center gap-1.5"><i class="fa-solid fa-ring text-amber-400"></i> Bodas & Aniversarios</div>
+            <div class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-amber-400"></i> Graduaciones</div>
+            <div class="flex items-center gap-1.5"><i class="fa-solid fa-briefcase text-amber-400"></i> Eventos Empresa</div>
+          </div>
+
+          <!-- Photo Strip -->
+          <div class="grid grid-cols-3 gap-2 pt-2">
+            <img src="imagenes/fotos del lugar y platillos/mesa-con-arreglos.jpg" alt="Mesa Eventos" class="rounded-lg h-20 w-full object-cover border border-white/10">
+            <img src="imagenes/fotos del lugar y platillos/comida-evento.jpg" alt="Comida Evento" class="rounded-lg h-20 w-full object-cover border border-white/10">
+            <img src="imagenes/fotos del lugar y platillos/local-evento-foto.jpg" alt="Lugar Evento" class="rounded-lg h-20 w-full object-cover border border-white/10">
+          </div>
+        </div>
+
+        <!-- Interactive Form Column -->
+        <div class="lg:col-span-6">
+          <div class="bg-stone-800 p-5 sm:p-8 rounded-2xl border border-white/10 shadow-xl">
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-white mb-3">Cotiza tu Evento por WhatsApp</h3>
+
+            <form onsubmit="sendCateringQuote(event)" class="space-y-3">
+              <div class="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Nombre:</label>
+                  <input type="text" id="cat-name" required placeholder="Tu nombre" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Teléfono:</label>
+                  <input type="tel" id="cat-phone" required placeholder="311 XXX XXXX" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Tipo de Evento:</label>
+                  <select id="cat-event-type" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
+                    <option value="Cumpleaños">Cumpleaños</option>
+                    <option value="Boda / Aniversario">Boda / Aniversario</option>
+                    <option value="Graduación">Graduación</option>
+                    <option value="Evento Empresarial">Evento Empresarial</option>
+                    <option value="Posada / Celebración">Posada / Celebración</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Invitados:</label>
+                  <input type="number" id="cat-guests" min="10" max="500" value="30" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2.5">
+                <div>
+                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Lugar:</label>
+                  <select id="cat-location" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
+                    <option value="En Restaurante Parra's Bistro">En Parra's Bistro</option>
+                    <option value="A Domicilio / Salón Particular">A Domicilio / Particular</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Fecha:</label>
+                  <input type="date" id="cat-date" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Detalles / Menú deseado:</label>
+                <textarea id="cat-details" rows="2" placeholder="Ej. Taquiza, parrillada, pizzas o bocadillos..." class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3 bg-[#c04828] hover:bg-[#a2381c] text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
+                <i class="fa-brands fa-whatsapp text-sm"></i> Solicitar Cotización de Catering
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== RESERVACIONES & UBICACIÓN ==================== -->
+  <section id="reservaciones" class="py-12 bg-[#fbf9f4]">
+    <div class="max-w-4xl mx-auto px-4">
+      
+      <div class="bg-white rounded-2xl border border-stone-200 p-6 sm:p-10 shadow-lg">
+        <div class="text-center max-w-lg mx-auto mb-6">
+          <span class="text-[10px] font-extrabold tracking-widest text-[#1e6b52] uppercase bg-[#e8f4f0] px-2.5 py-1 rounded-full">Aparta tu Mesa</span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-2">Reservación en Parra's Bistro</h2>
+        </div>
+
+        <form onsubmit="sendReservation(event)" class="space-y-3 text-xs">
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">Tu Nombre:</label>
+              <input type="text" id="res-name" required placeholder="Nombre completo" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
+            </div>
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">WhatsApp:</label>
+              <input type="tel" id="res-phone" required placeholder="311 XXX XXXX" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">Personas:</label>
+              <select id="res-guests" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-2 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
+                <option value="2 Personas">2 personas</option>
+                <option value="4 Personas">4 personas</option>
+                <option value="6 Personas">6 personas</option>
+                <option value="8+ Personas">8+ personas</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">Fecha:</label>
+              <input type="date" id="res-date" required class="w-full bg-stone-50 border border-stone-300 rounded-lg px-2 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
+            </div>
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">Hora:</label>
+              <select id="res-time" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-2 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
+                <option value="09:00 AM">09:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="02:00 PM">02:00 PM</option>
+                <option value="07:00 PM">07:00 PM</option>
+                <option value="09:00 PM">09:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">Zona:</label>
+              <select id="res-zone" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
+                <option value="Comedor Principal">Comedor Principal</option>
+                <option value="Terraza al Aire Libre">Terraza al Aire Libre</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">Motivo (Opcional):</label>
+              <input type="text" id="res-occasion" placeholder="Ej. Cumpleaños, Cita" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-3 bg-[#1e6b52] hover:bg-[#15503d] text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+            <i class="fa-solid fa-calendar-check"></i> Reservar Mesa por WhatsApp
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== UBICACIÓN & CONTACTO ==================== -->
+  <section id="contacto" class="py-12 bg-white border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        
+        <div class="space-y-3">
+          <span class="text-[10px] font-extrabold tracking-widest text-[#1e6b52] uppercase bg-[#e8f4f0] px-2.5 py-1 rounded-full">Ubicación</span>
+          <h2 class="font-serif text-2xl font-bold text-stone-900">Santiago Ixcuintla, Nayarit</h2>
+          <p class="text-stone-600 text-xs">M. Ponce #54 / #56, entre Prol. Jiménez y 2da de Torres. C.P. 63321.</p>
+          <p class="text-xs text-stone-700 font-semibold">Miércoles a Lunes: Desayunos & Cenas (Martes Cerrado).</p>
+          
+          <div class="flex items-center gap-2 pt-2">
+            <a href="https://wa.me/523111481757" target="_blank" class="px-3.5 py-2 bg-[#25D366] text-white text-xs font-bold rounded-xl flex items-center gap-1.5">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://maps.app.goo.gl/4WcAq36d7pBhisYa9" target="_blank" class="px-3.5 py-2 bg-[#c04828] text-white text-xs font-bold rounded-xl flex items-center gap-1.5">
+              <i class="fa-solid fa-map-location-dot"></i> Google Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- Small Location Card -->
+        <div class="bg-stone-900 text-white p-6 rounded-2xl relative overflow-hidden border border-stone-800">
+          <h3 class="font-serif text-xl font-bold mb-1">Parra's Bistro</h3>
+          <p class="text-xs text-stone-400 mb-3">Servicio de todo tipo de comida para cualquier tipo de evento.</p>
+          <span class="text-amber-400 font-bold text-xs"><i class="fa-solid fa-phone"></i> 311 148 1757 / 323 123 9895</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-stone-900 text-stone-400 text-xs py-8 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+      <p class="font-bold text-white font-serif text-sm">Parra's Bistro • Desde 2017</p>
+      <p>© 2026 Parra's Bistro. Santiago Ixcuintla, Nayarit, México.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MOBILE APP BOTTOM NAVIGATION BAR (FIXED ON PHONE) ==================== -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 mobile-bottom-bar flex items-center justify-around">
+    <a href="#inicio" class="mobile-nav-item active">
+      <i class="fa-solid fa-house"></i>
+      <span>Inicio</span>
+    </a>
+    <a href="#menu" class="mobile-nav-item">
+      <i class="fa-solid fa-utensils"></i>
+      <span>Menú</span>
+    </a>
+    <a href="#promociones" class="mobile-nav-item">
+      <i class="fa-solid fa-tag"></i>
+      <span>Promos</span>
+    </a>
+    <a href="#catering" class="mobile-nav-item">
+      <i class="fa-solid fa-champagne-glasses"></i>
+      <span>Catering</span>
+    </a>
+    <button onclick="openCartModal()" class="mobile-nav-item relative">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span>Carrito</span>
+      <span class="cart-badge-count hidden absolute top-1 right-3 bg-[#c04828] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-stone-900">0</span>
+    </button>
+  </nav>
+
+  <!-- ==================== CART DRAWER MODAL ==================== -->
+  <div id="cart-modal" class="hidden fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col animate-fade-in">
+      
+      <div class="bg-stone-900 text-white p-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-basket-shopping text-amber-400"></i>
+          <h3 class="font-serif text-lg font-bold">Tu Pedido por WhatsApp</h3>
+        </div>
+        <button onclick="closeCartModal()" class="text-stone-400 hover:text-white text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div id="cart-items-container" class="p-4 overflow-y-auto space-y-2 flex-1">
+        <!-- JS Rendered -->
+      </div>
+
+      <div class="p-4 bg-stone-50 border-t border-stone-200 space-y-3">
+        <div class="flex justify-between items-center text-sm font-bold">
+          <span class="text-stone-700">Total:</span>
+          <span id="cart-total-price" class="text-xl text-[#c04828] font-black">$0.00</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div>
+            <label class="block font-bold text-stone-600 mb-0.5">Nombre:</label>
+            <input type="text" id="cart-client-name" placeholder="Tu nombre" class="w-full bg-white border border-stone-300 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#c04828]">
+          </div>
+          <div>
+            <label class="block font-bold text-stone-600 mb-0.5">Entrega:</label>
+            <select id="cart-order-type" onchange="toggleAddressInput(this.value)" class="w-full bg-white border border-stone-300 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#c04828]">
+              <option value="Para Llevar">Pasar a Recoger</option>
+              <option value="Domicilio">A Domicilio</option>
+              <option value="Comer en Restaurante">En Restaurante</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="cart-address-wrapper" class="hidden text-xs">
+          <label class="block font-bold text-stone-600 mb-0.5">Dirección:</label>
+          <input type="text" id="cart-address" placeholder="Calle, número, colonia..." class="w-full bg-white border border-stone-300 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#c04828]">
+        </div>
+
+        <div class="text-xs">
+          <label class="block font-bold text-stone-600 mb-0.5">Notas:</label>
+          <input type="text" id="cart-notes" placeholder="Ej. Sin cebolla, extra salsa..." class="w-full bg-white border border-stone-300 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#c04828]">
+        </div>
+
+        <button onclick="sendWhatsAppOrder()" class="w-full py-3 bg-[#25D366] text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2 text-sm">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Enviar Pedido por WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== LIGHTBOX MODAL ==================== -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-[120] lightbox-modal flex items-center justify-center p-4">
+    <div class="relative max-w-3xl w-full">
+      <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white text-2xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="lightbox-img" src="" alt="" class="w-full max-h-[75vh] object-contain rounded-xl">
+      <p id="lightbox-caption" class="text-center text-white font-serif text-sm mt-2"></p>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="app.js"></script>
+  <script>
+    function toggleMobileNav() {
+      const nav = document.getElementById("mobile-nav");
+      nav.classList.toggle("hidden");
+    }
+
+    function toggleAddressInput(val) {
+      const wrapper = document.getElementById("cart-address-wrapper");
+      if (val === "Domicilio") {
+        wrapper.classList.remove("hidden");
+      } else {
+        wrapper.classList.add("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
