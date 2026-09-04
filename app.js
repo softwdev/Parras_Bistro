@@ -4,395 +4,736 @@
 
 // --- DATASET: MENÚ COMPLETO DE PARRA'S BISTRO ---
 const MENU_DATA = [
-  // --- DESAYUNOS & HUEVOS ---
+
+  // ============================================================
+  // DESAYUNOS: EMPIEZA EL DÍA
+  // ============================================================
   {
-    id: "d1",
-    name: "Chilaquiles de la Casa",
-    category: "desayunos",
-    price: 99.00,
-    description: "Verdes o rojos, con top de crema, queso, cebolla, ensaladilla de la casa, frijoles con queso y huevo estrellado al gusto.",
-    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg",
-    badge: "Popular",
-    popular: true,
-    options: ["Salsa Verde", "Salsa Roja"]
+    id: "d1", name: "Plato de Fruta", category: "desayunos", price: 99.00,
+    description: "Melón, papayo, piña y fresa, con un poco de yogurth natural.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg", badge: "Saludable"
   },
   {
-    id: "d2",
-    name: "Birria-Quiles",
-    category: "desayunos",
-    price: 165.00,
-    description: "Bañados en salsa de birria, con top de crema, queso, ensaladilla, costra de queso, carne de birria tatemada y frijoles con queso.",
-    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg",
-    badge: "Especialidad",
-    popular: true
+    id: "d2", name: "Pan Dulce de la Casa", category: "desayunos", price: 0,
+    description: "Pan dulce de la casa recién horneado. Consultar disponibilidad. Precio de acuerdo al tipo de pan.",
+    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg"
   },
+  // HUEVOS AL GUSTO
   {
-    id: "d3",
-    name: "Chilaquiles Parra's",
-    category: "desayunos",
-    price: 155.00,
-    description: "Bañados en salsa especial de camarón con toque de picante, costra de queso, camarones al ajillo, crema, queso y frijoles.",
-    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg",
-    badge: "Firma",
-    popular: true
-  },
-  {
-    id: "d4",
-    name: "Chilaquiles Poblanos",
-    category: "desayunos",
-    price: 132.00,
-    description: "Bañados en salsa poblana, queso, rajas poblanas con pollo, ensaladilla y frijoles con queso.",
-    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg",
-    badge: "Chef Choice"
-  },
-  {
-    id: "d5",
-    name: "Chilaquiles Rellenos",
-    category: "desayunos",
-    price: 165.00,
-    description: "Rellenos de chicharrón con queso, bañados en salsa de chile secos, crema, queso, cebolla y frijoles fritos.",
-    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg"
-  },
-  {
-    id: "d6",
-    name: "Huevos Estrellados",
-    category: "desayunos",
-    price: 109.00,
+    id: "d3", name: "Huevos Estrellados", category: "desayunos", price: 109.00,
     description: "Con tiritas de tocino doraditas, acompañado de chilaquiles de la casa y frijoles con queso.",
     image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg"
   },
   {
-    id: "d7",
-    name: "Huevos Revueltos",
-    category: "desayunos",
-    price: 109.00,
-    description: "Con jamón, salchicha, tocino, a la mexicana, nopales o ejotes. Con chilaquiles y frijoles.",
+    id: "d4", name: "Huevos Revueltos", category: "desayunos", price: 109.00,
+    description: "Con jamón, salchicha, tocino, a la mexicana, con nopales o ejotes. Con chilaquiles de la casa y frijoles con queso.",
     image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg",
     options: ["Jamón", "Salchicha", "Tocino", "A la Mexicana", "Nopales", "Ejotes"]
   },
+  // GUISADOS PREPARADOS
   {
-    id: "d8",
-    name: "Guisados Preparados",
-    category: "desayunos",
-    price: 130.00,
-    description: "Con chilaquiles y frijoles. Elige: Rajas Poblanas, Machaca a la Mexicana, Chicharrón Rojo, Lengua Verde, Hígado Encebollado o Bisteck Ranchero.",
-    image: "imagenes/fotos del lugar y platillos/pizzas-bebidas-guisos.jpg",
-    badge: "Tradicional",
-    options: ["Rajas Poblanas", "Machaca a la Mexicana", "Chicharrón Rojo", "Lengua Verde", "Hígado Encebollado", "Bisteck Ranchero"]
+    id: "d5", name: "Guisados Preparados", category: "desayunos", price: 130.00,
+    description: "Con chilaquiles y frijoles. Combínalos por $19 extra o conviértelo en Desayuno Completo por $199 (fruta, café y jugo de naranja).",
+    image: "imagenes/fotos del lugar y platillos/pizzas-bebidas-guisos.jpg", badge: "Tradicional",
+    options: ["Rajas Poblanas con Pollo", "Lengua en Salsa Verde", "Machaca a la Mexicana", "Hígado Encebollado", "Chicharrón en Salsa Roja", "Bisteck Ranchero"]
+  },
+  // CHILAQUILES
+  {
+    id: "d6", name: "Chilaquiles de la Casa", category: "desayunos", price: 99.00,
+    description: "Verdes o rojos. Top de crema, queso, cebolla, ensaladilla de la casa, frijoles con queso y huevo estrellado al gusto.",
+    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg", badge: "Popular", popular: true,
+    options: ["Salsa Verde", "Salsa Roja"]
   },
   {
-    id: "d11",
-    name: "Desayuno Vaquero",
-    category: "desayunos",
-    price: 295.00,
-    description: "300 gr Rib eye, 2 huevos, papa hash brown, tomate, cebolla y morrón salteados, frijoles.",
-    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg",
-    badge: "Premium",
-    popular: true
+    id: "d7", name: "Chilaquiles Poblanos", category: "desayunos", price: 132.00,
+    description: "Bañados en salsa de chile poblano, con top de queso, rajas poblanas con pollo, ensaladilla de la casa y frijoles con queso.",
+    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg"
   },
   {
-    id: "d13",
-    name: "Quesa-Birrias (3 pz)",
-    category: "desayunos",
-    price: 175.00,
-    description: "3 Quesabirrias doraditas con costra de queso, cebolla, cilantro, cremoso de aguacate y consomé.",
-    image: "imagenes/fotos del lugar y platillos/tacos.jpg",
-    badge: "Favorito",
-    popular: true
+    id: "d8", name: "Birria-Quiles", category: "desayunos", price: 165.00,
+    description: "Bañados en salsa de birria, con top de crema, queso, ensaladilla de la casa, costra de queso, carne de birria tatemada y frijoles con queso.",
+    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg", badge: "Especialidad", popular: true
+  },
+  {
+    id: "d9", name: "Chilaquiles Parra's", category: "desayunos", price: 155.00,
+    description: "Bañados en salsa especial de camarón con toque de picante, costra de queso, camarones al ajillo, crema, queso, ensaladilla de la casa y frijoles con queso.",
+    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg", badge: "Firma", popular: true
+  },
+  {
+    id: "d10", name: "Chilaquiles Rellenos", category: "desayunos", price: 165.00,
+    description: "Rellenos de chicharrón con queso, bañados en salsa de chile secos, top de crema, queso, mix de ensaladilla y frijoles fritos con queso.",
+    image: "imagenes/fotos del lugar y platillos/chilaquiles-verdes.jpg"
+  },
+  // OMELETES
+  {
+    id: "d11", name: "Omelete Sencillo", category: "desayunos", price: 125.00,
+    description: "Tortilla de huevo con queso, con jamón, salchicha o tocino, acompañado de frijoles y chilaquiles de la casa.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg",
+    options: ["Jamón", "Salchicha", "Tocino"]
+  },
+  {
+    id: "d12", name: "Omelete Poblano", category: "desayunos", price: 175.00,
+    description: "Tortilla de huevo rellena con queso y pollo, bañado en salsa poblana de la casa, con frijoles y chilaquiles. (Especialidad del chef).",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg", badge: "Chef's Choice"
+  },
+  {
+    id: "d13", name: "Omelete Hawaii", category: "desayunos", price: 165.00,
+    description: "Tortilla de huevo rellena de queso, jamón salteado con cebolla, piña asada, chilaquiles y mix primavera y tomate cherry.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg"
+  },
+  {
+    id: "d14", name: "Omelete del Mar", category: "desayunos", price: 180.00,
+    description: "Tortilla de huevo con queso, salteado de vegetales a la mexicana, camarones al ajo, sobre salsa roja de camarón, con frijoles y chilaquiles.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg"
+  },
+  {
+    id: "d15", name: "Omelete Champi y Espinaca", category: "desayunos", price: 180.00,
+    description: "Tortilla de huevo con queso, rellena con champiñones salteados con espinaca, cebolla morada, tomate cherry confitado, tocino frito, hash brown y ensalada.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg"
+  },
+  {
+    id: "d16", name: "Denver Omellete", category: "desayunos", price: 180.00,
+    description: "Cubitos de jamón, tocino, cebolla, mix de pimientos morrones, queso manchego y americano, bolitas de papa, mix primavera y tomate cherry.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg"
   },
 
-  // --- PIZZAS A LA LEÑA ---
+  // ============================================================
+  // ESPECIALES DEL CHEF
+  // ============================================================
   {
-    id: "p1",
-    name: "Pizza Carnívora",
-    category: "pizzas",
-    price: 289.00,
-    description: "Salsa martajada verde, arrachera, chorizo, cebolla morada, cilantro, cremoso de aguacate y jalapeño.",
-    image: "imagenes/fotos del lugar y platillos/pizza1.jpg",
-    badge: "Top Ventas",
-    popular: true
+    id: "e1", name: "Arrachera Asada", category: "especiales", price: 295.00,
+    description: "300 gr de arrachera, chorizo corona asado, quesadilla, frijoles con queso, chilaquiles y guacamole con pico de gallo.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", badge: "Premium", popular: true
   },
   {
-    id: "p2",
-    name: "Pizza Boneles",
-    category: "pizzas",
-    price: 255.00,
-    description: "Salsa de tomate, queso mozzarella, mini boneles de pollo, salsa BBQ, BBQ/Hot o Búfalo, ranch y cebollín.",
-    image: "imagenes/fotos del lugar y platillos/pizza2.jpg",
-    badge: "Recomendada",
-    popular: true,
-    options: ["Salsa BBQ", "BBQ / Hot", "Búfalo"]
+    id: "e2", name: "Desayuno Vaquero", category: "especiales", price: 295.00,
+    description: "300 gr de Rib eye, 2 huevos estrellados o revueltos, papa hash brown, tomate, cebolla y morrón salteados, frijoles con queso de la casa.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", badge: "Premium", popular: true
   },
   {
-    id: "p3",
-    name: "Pizza Bianca",
-    category: "pizzas",
-    price: 255.00,
-    description: "Salsa blanca con top de camarones, cebolla morada, espinacas, alcaparras, queso manchego y parmesano.",
-    image: "imagenes/fotos del lugar y platillos/pizza3.jpg",
-    badge: "Gourmet"
+    id: "e3", name: "Quesa-Birrias (3 pz)", category: "especiales", price: 175.00,
+    description: "3 Quesabirrias chicas de harina o maíz, doraditas, con costra de queso, cebolla, cilantro, cremoso de aguacate, acompañado con consomé. (Especialidad del chef).",
+    image: "imagenes/fotos del lugar y platillos/tacos.jpg", badge: "Favorito", popular: true,
+    options: ["Harina", "Maíz"]
   },
   {
-    id: "p4",
-    name: "Pizza Margarita",
-    category: "pizzas",
-    price: 210.00,
-    description: "Salsa de tomate, queso mozzarella, tomate cherry, espinaca y salsa pesto artesanal.",
+    id: "e4", name: "Desayuno Americano", category: "especiales", price: 205.00,
+    description: "2 piezas de huevo revuelto, 2 hot cakes, papas sazonadas con mantequilla y especias, tocino y salchicha ahumada doradito y miel de maple.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg"
+  },
+  {
+    id: "e5", name: "Desayuno Campirano", category: "especiales", price: 205.00,
+    description: "Machaca frita guisada con cebolla, tomate y serrano, con tamal de elote en salsa poblana con crema y queso, chilaquiles y frijoles.",
+    image: "imagenes/fotos del lugar y platillos/plato-desayuno.jpg"
+  },
+  {
+    id: "e6", name: "Pollo Caprese", category: "especiales", price: 275.00,
+    description: "300 gr de pechuga a la plancha, gratinada con queso mozzarella, pesto de la casa, tomate cherry rostizado, ensalada con reducción de balsámico y bites de papa.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg"
+  },
+
+  // ============================================================
+  // ENSALADAS DE LA CASA ($135.00)
+  // ============================================================
+  {
+    id: "s1", name: "Ensalada Agridulce", category: "ensaladas", price: 135.00,
+    description: "Lechuga, betabel, piña, arándanos, aceitunas negras, manzana verde, aderezo de miel mostaza, proteína a elección y crotones.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg", badge: "Saludable",
+    options: ["Pollo", "Camarones", "Arrachera"]
+  },
+  {
+    id: "s2", name: "Ensalada Parras", category: "ensaladas", price: 135.00,
+    description: "Lechuga, brócoli, coliflor, elote, morrón, aguacate, pepino, aderezo de ajo con limón, proteína a elección y crotones.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg", badge: "Saludable",
+    options: ["Pollo", "Camarones", "Arrachera"]
+  },
+  {
+    id: "s3", name: "Hortalizas y Fresas", category: "ensaladas", price: 135.00,
+    description: "Mix primavera, fresa, arándanos, pepino, nuez, queso parmesano, aderezo reducción de balsámico, proteína a elegir y crotones.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg",
+    options: ["Pollo", "Camarones", "Arrachera"]
+  },
+  {
+    id: "s4", name: "Pasta Lada (Ensalada)", category: "ensaladas", price: 135.00,
+    description: "Pasta sazonada con pesto, tomate cherry, cebolla morada, pepino, aceitunas negras, top de queso parmesano, aderezo ranch y crotones.",
+    image: "imagenes/fotos del lugar y platillos/pasta-con-camarones.jpg"
+  },
+
+  // ============================================================
+  // PARA EMPEZAR & SNACKS
+  // ============================================================
+  {
+    id: "sn1", name: "Guacamole con Totopos", category: "snacks", price: 89.00,
+    description: "Aguacate molido, con pepino, cebolla, jitomate, cilantro y acompañado con totopos.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg", badge: "Para Empezar"
+  },
+  {
+    id: "sn2", name: "Chistorra", category: "snacks", price: 199.00,
+    description: "Chistorra asada, base de queso fundido, y top de tomate cherry y cebolla asada especial.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg"
+  },
+  {
+    id: "sn3", name: "Elotitos", category: "snacks", price: 99.00,
+    description: "Elote amarillo asado, bañado en salsa holandesa de la casa, con top de parmesano, hojuelas de chile y cebollín.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg"
+  },
+  {
+    id: "sn4", name: "Papas Francesas", category: "snacks", price: 65.00,
+    description: "Crujientes papas francesas de la casa.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "sn5", name: "Papas Gajo", category: "snacks", price: 72.00,
+    description: "Papas gajo horneadas con especias de la casa.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "sn6", name: "Aros de Cebolla", category: "snacks", price: 85.00,
+    description: "Aros de cebolla empanizados y dorados.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "sn7", name: "Nuggets", category: "snacks", price: 85.00,
+    description: "Nuggets de pollo dorados y crujientes.",
+    image: "imagenes/fotos del lugar y platillos/boneless.jpg"
+  },
+  {
+    id: "sn8", name: "Dedos de Queso", category: "snacks", price: 100.00,
+    description: "Dedos de queso empanizados y gratinados.",
+    image: "imagenes/fotos del lugar y platillos/boneless.jpg"
+  },
+  {
+    id: "sn9", name: "Salchichas Fritas", category: "snacks", price: 49.00,
+    description: "Salchichas fritas doraditas.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "sn10", name: "Nachos con Carne", category: "snacks", price: 179.00,
+    description: "Totopos bañados en salsa de queso, jalapeño, guacamole con pico de gallo, crema, queso cotija y carne asada picada.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg", badge: "Popular", popular: true
+  },
+
+  // ============================================================
+  // ALITAS Y BONELES
+  // ============================================================
+  {
+    id: "ab1", name: "Alitas (300 gr)", category: "alitas", price: 135.00,
+    description: "300 gr de alitas bañadas en la salsa de tu preferencia, con papas francesas, apio, zanahoria y ranch.",
+    image: "imagenes/fotos del lugar y platillos/boneless.jpg", badge: "Popular", popular: true,
+    options: ["BBQ", "BBQ/Hot", "Búfalo", "Tropical", "Chipotle/Naranja", "Mango/Habanero"]
+  },
+  {
+    id: "ab2", name: "Boneles (300 gr)", category: "alitas", price: 145.00,
+    description: "300 gr de Boneles bañados en la salsa de tu preferencia, con papas francesas, apio, zanahoria y ranch.",
+    image: "imagenes/fotos del lugar y platillos/boneless-bbq.jpg", badge: "Popular", popular: true,
+    options: ["BBQ", "BBQ/Hot", "Búfalo", "Tropical", "Chipotle/Naranja", "Mango/Habanero"]
+  },
+
+  // ============================================================
+  // PIZZAS A LA LEÑA
+  // ============================================================
+  {
+    id: "p1", name: "Margarita", category: "pizzas", price: 210.00,
+    description: "Salsa de tomate, queso mozzarella, tomate cherry, espinaca y salsa pesto.",
     image: "imagenes/fotos del lugar y platillos/pizza1.jpg"
   },
   {
-    id: "p5",
-    name: "Pizza Peperoni & Salami",
-    category: "pizzas",
-    price: 210.00,
-    description: "Salsa de tomate casera, queso mozzarella derretido, abundante peperoni y salami.",
-    image: "imagenes/fotos del lugar y platillos/pizza2.jpg",
-    popular: true
+    id: "p2", name: "Peperoni & Salami", category: "pizzas", price: 210.00,
+    description: "Salsa de tomate, peperoni y salami y queso mozzarella.",
+    image: "imagenes/fotos del lugar y platillos/pizza2.jpg", popular: true
   },
   {
-    id: "p6",
-    name: "Pizza Suprema",
-    category: "pizzas",
-    price: 269.00,
-    description: "Salsa de tomate, mozzarella, salchicha ahumada, champiñones, cebolla morada, morrón y aceitunas.",
+    id: "p3", name: "Suprema", category: "pizzas", price: 269.00,
+    description: "Salsa de tomate, queso mozzarella, salchicha ahumada, champiñones, cebolla morada, morrón y aceitunas negras.",
     image: "imagenes/fotos del lugar y platillos/pizza3.jpg"
   },
+  {
+    id: "p4", name: "Hawaiiana", category: "pizzas", price: 210.00,
+    description: "Salsa de tomate, queso mozzarella, cebolla y piña rostizadas y jamón.",
+    image: "imagenes/fotos del lugar y platillos/pizza1.jpg"
+  },
+  {
+    id: "p5", name: "Carnívora", category: "pizzas", price: 289.00,
+    description: "Salsa martajada verde, arrachera, chorizo, cebolla morada, cilantro, cremoso de aguacate y rajas de jalapeño fresco.",
+    image: "imagenes/fotos del lugar y platillos/pizza2.jpg", badge: "Top Ventas", popular: true
+  },
+  {
+    id: "p6", name: "Pizza Boneles", category: "pizzas", price: 255.00,
+    description: "Salsa de tomate, queso mozzarella, mini boneles de pollo, salsa bbq/hot o búfalo a elegir, ranch y cebollín.",
+    image: "imagenes/fotos del lugar y platillos/pizza3.jpg", badge: "Recomendada", popular: true,
+    options: ["BBQ", "BBQ/Hot", "Búfalo"]
+  },
+  {
+    id: "p7", name: "Pizza Bianca", category: "pizzas", price: 255.00,
+    description: "Salsa blanca con top de camarones, cebolla morada, espinacas, alcaparras, queso manchego y queso parmesano.",
+    image: "imagenes/fotos del lugar y platillos/pizza1.jpg", badge: "Gourmet"
+  },
 
-  // --- HAMBURGUESAS & SMASH ---
+  // ============================================================
+  // HAMBURGUESAS CLÁSICAS
+  // ============================================================
   {
-    id: "h1",
-    name: "Burguer Lunch",
-    category: "hamburguesas",
-    price: 162.00,
-    description: "Pan brioche, carne de res, queso americano y manchego, tocino, huevo estrellado, cebolla asada, jalapeño y papas.",
-    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg",
-    badge: "Estrella",
-    popular: true
+    id: "h1", name: "Burguer Lunch", category: "hamburguesas", price: 162.00,
+    description: "Pan brioche, carne con queso americano y manchego, tocino, huevo estrellado al gusto, cebolla asada, tomate, lechuga, ketchup, mostaza, jalapeño y papas francesas.",
+    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg", badge: "Estrella", popular: true
   },
   {
-    id: "h2",
-    name: "Americana Burguer",
-    category: "hamburguesas",
-    price: 162.00,
-    description: "Pan brioche, carne, manchego y americano, jamón, aros de cebolla, salsa BBQ y papas.",
-    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg",
-    popular: true
+    id: "h2", name: "Americana Burguer", category: "hamburguesas", price: 162.00,
+    description: "Pan brioche, carne, queso manchego y americano, jamón, aros de cebolla, salsa bbq, tomate, lechuga, ketchup, mostaza, jalapeños y papas francesas.",
+    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg", popular: true
   },
   {
-    id: "h4",
-    name: "Smash Burger BBQ",
-    category: "hamburguesas",
-    price: 104.00,
-    description: "Carne smasheada a la plancha, queso americano, tocino crujiente, aros de cebolla y BBQ.",
-    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg",
-    badge: "Smash",
-    popular: true
+    id: "h3", name: "Hamburguesa Doble", category: "hamburguesas", price: 162.00,
+    description: "Dos carnes, con queso manchego y queso americano.",
+    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg"
   },
   {
-    id: "h5",
-    name: "Hamburguesa Mar y Tierra",
-    category: "hamburguesas",
-    price: 110.00,
-    description: "Carne de res con queso, camarones salteados y cremoso guacamole fresco.",
-    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg",
-    badge: "Special"
+    id: "h4", name: "Mar y Tierra", category: "hamburguesas", price: 110.00,
+    description: "Carne con queso, camarones y guacamole.",
+    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg", badge: "Special"
   },
   {
-    id: "h6",
-    name: "Cruji Pollo Burguer",
-    category: "hamburguesas",
-    price: 119.00,
-    description: "Tender de pollo crujiente bañados en tu salsa favorita o naturales con queso americano.",
-    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg",
-    options: ["Salsa BBQ", "BBQ / Hot", "Búfalo", "Mango Habanero", "Naturales"]
+    id: "h5", name: "Chuleta", category: "hamburguesas", price: 118.00,
+    description: "Carne con queso, chuleta ahumada y mermelada de tocino.",
+    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg"
   },
   {
-    id: "h7",
-    name: "Chili Dogo",
-    category: "hamburguesas",
-    price: 75.00,
-    description: "Salchicha doradita, salsa chili casera y abundante queso gratinado con papas.",
+    id: "h6", name: "Hawaii Burguer", category: "hamburguesas", price: 98.00,
+    description: "Carne con queso, jamón y piña.",
+    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg"
+  },
+  {
+    id: "h7", name: "Champiqueso", category: "hamburguesas", price: 98.00,
+    description: "Carne con queso y champiñones frescos salteados.",
+    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg"
+  },
+  {
+    id: "h8", name: "Asadera", category: "hamburguesas", price: 86.00,
+    description: "Carne con queso y jamón.",
+    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg"
+  },
+  {
+    id: "h9", name: "Salchiqueso", category: "hamburguesas", price: 86.00,
+    description: "Carne con queso y salchicha.",
+    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg"
+  },
+  {
+    id: "h10", name: "Pollo Burguer", category: "hamburguesas", price: 90.00,
+    description: "Medallón de pollo con queso, tocino y guacamole.",
+    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg"
+  },
+  // SMASH BURGUER
+  {
+    id: "sm1", name: "Smash Burger BBQ", category: "hamburguesas", price: 104.00,
+    description: "Carne 'smasheada', queso americano, tocino, aros de cebolla y salsa bbq. Con cebolla cruda, tomate, lechuga, ketchup, mostaza, mayonesa, jalapeños y pepinillos.",
+    image: "imagenes/fotos del lugar y platillos/hamburgesa.jpg", badge: "Smash"
+  },
+  {
+    id: "sm2", name: "Smash Americana", category: "hamburguesas", price: 104.00,
+    description: "Carne 'smasheada', queso americano, tocino y jamón.",
+    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg", badge: "Smash"
+  },
+  {
+    id: "sm3", name: "Cruji Pollo", category: "hamburguesas", price: 119.00,
+    description: "Tender de pollo con tu salsa de alitas preferida o naturales, con queso americano.",
+    image: "imagenes/fotos del lugar y platillos/hamburguesa2.jpg", badge: "Smash",
+    options: ["BBQ", "BBQ/Hot", "Búfalo", "Mango/Habanero", "Naturales"]
+  },
+
+  // ============================================================
+  // HOT DOGS
+  // ============================================================
+  {
+    id: "hd1", name: "Chili Dogo", category: "hotdogs", price: 75.00,
+    description: "Salchicha dorada, salsa chili y queso gratinado.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg", badge: "Popular", popular: true
+  },
+  {
+    id: "hd2", name: "Hot Dog Hawaii", category: "hotdogs", price: 72.00,
+    description: "Salchicha frita, queso manchego, jamón y piña.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "hd3", name: "Hot Dog Guacamole", category: "hotdogs", price: 67.00,
+    description: "Salchicha frita, guacamole con pico de gallo.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "hd4", name: "Champiqueso Dog", category: "hotdogs", price: 69.00,
+    description: "Salchicha frita, queso manchego y champiñones.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "hd5", name: "Asadero Dog", category: "hotdogs", price: 49.00,
+    description: "Salchicha frita y queso manchego.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "hd6", name: "Tocino Dog", category: "hotdogs", price: 49.00,
+    description: "Salchicha frita con tocino.",
+    image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
+  },
+  {
+    id: "hd7", name: "Hot Dog Sencillo", category: "hotdogs", price: 45.00,
+    description: "Salchicha frita con cebolla, tomate, mayonesa, mostaza, ketchup y chipotle.",
     image: "imagenes/fotos del lugar y platillos/hotdog+papas.jpg"
   },
 
-  // --- CORTES DE CARNE & PARRILLADAS ---
+  // ============================================================
+  // TACOS FIFÍ'S Y TACOS
+  // ============================================================
   {
-    id: "c1",
-    name: "Rib Eye (350 gr)",
-    category: "cortes",
-    price: 335.00,
-    description: "350 gr de Rib eye asado a la parrilla, acompañado de 2 guarniciones a elegir.",
-    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg",
-    badge: "Premium",
-    popular: true
+    id: "tf1", name: "Tacos Arrachera Fifí (3 pz)", category: "tacos", price: 239.00,
+    description: "Orden de 3 tacos con 'bastones' de arrachera, costra de queso, cebolla y cilantro, cremoso de aguacate y cebollita asada.",
+    image: "imagenes/fotos del lugar y platillos/tacos.jpg", badge: "Fifí", popular: true
   },
   {
-    id: "c2",
-    name: "Arrachera (320 gr)",
-    category: "cortes",
-    price: 305.00,
-    description: "320 gr de Arrachera marinada a la leña con 2 guarniciones completas.",
-    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg",
-    popular: true
+    id: "tf2", name: "Tacos Rib Eye Fifí (3 pz)", category: "tacos", price: 249.00,
+    description: "Orden de 3 tacos con gaonera de Rib eye, sellada, costra de queso, frijoles puercos, cebolla y cilantro, aguacate y cebollita asada. Recomendados con harina.",
+    image: "imagenes/fotos del lugar y platillos/tacos2.jpg", badge: "Fifí", popular: true
   },
   {
-    id: "c5",
-    name: "Costilla BBQ",
-    category: "cortes",
-    price: 275.00,
-    description: "Costillar de cerdo ahumado y horneado en salsa BBQ con elote dulce y puré de papa.",
-    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg"
+    id: "t1", name: "Taco de Asada", category: "tacos", price: 27.00,
+    description: "Taco suave de carne asada con cilantro y cebolla.",
+    image: "imagenes/fotos del lugar y platillos/tacos.jpg"
   },
   {
-    id: "c6",
-    name: "Parrillada Amigos (4 personas)",
-    category: "cortes",
-    price: 880.00,
-    description: "1/2 Kg Sirloin, Arrachera 300g, chorizo argentino, frijoles puercos, 5 quesadillas y salsas.",
-    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg",
-    badge: "Compartir",
-    popular: true
-  },
-
-  // --- TACOS & ANTOJITOS ---
-  {
-    id: "t1",
-    name: "Tacos de Arrachera Fifí (3 pz)",
-    category: "tacos",
-    price: 239.00,
-    description: "3 tacos con bastones de arrachera, costra de queso, cebolla, cilantro, aguacate y cebollita asada.",
-    image: "imagenes/fotos del lugar y platillos/tacos.jpg",
-    badge: "Fifí",
-    popular: true
+    id: "t2", name: "Taco de Chorizo Corona", category: "tacos", price: 27.00,
+    description: "Taco de chorizo Corona con cilantro y cebolla.",
+    image: "imagenes/fotos del lugar y platillos/tacos.jpg"
   },
   {
-    id: "t2",
-    name: "Tacos Rib Eye Fifí (3 pz)",
-    category: "tacos",
-    price: 249.00,
-    description: "3 tacos con gaonera de Rib eye, costra de queso, frijoles puercos, aguacate y cebollita asada.",
-    image: "imagenes/fotos del lugar y platillos/tacos2.jpg",
-    badge: "Fifí",
-    popular: true
+    id: "t3", name: "Taco de Pastor", category: "tacos", price: 27.00,
+    description: "Taco de pastor con cilantro y cebolla.",
+    image: "imagenes/fotos del lugar y platillos/tacos2.jpg"
   },
   {
-    id: "t3",
-    name: "Tacos Individuales",
-    category: "tacos",
-    price: 27.00,
-    description: "Taco suave artesanal. Elige carne: Asada, Chorizo Corona, Pastor o Lengua.",
+    id: "t4", name: "Taco de Lengua", category: "tacos", price: 27.00,
+    description: "Taco de lengua con cilantro y cebolla.",
+    image: "imagenes/fotos del lugar y platillos/tacos.jpg"
+  },
+  {
+    id: "t5", name: "Taco de Tripa", category: "tacos", price: 35.00,
+    description: "Taco de tripa bien doradita con cilantro y cebolla.",
+    image: "imagenes/fotos del lugar y platillos/tacos2.jpg"
+  },
+  // PELLIZCADAS Y QUESADILLAS
+  {
+    id: "pq1", name: "Pellizcada / Quesadilla", category: "tacos", price: 75.00,
+    description: "Con queso fundido. Elige guisado: Asada, Chorizo Corona, Pastor o Lengua.",
     image: "imagenes/fotos del lugar y platillos/tacos.jpg",
     options: ["Asada", "Chorizo Corona", "Pastor", "Lengua"]
   },
-
-  // --- PASTAS, BAGUETTES & BURRITAS ---
   {
-    id: "pa1",
-    name: "Fettuccini Alfredo con Camarones",
-    category: "pastas",
-    price: 215.00,
-    description: "Fettuccini en salsa alfredo cremosa con camarones (o pollo), ajillo, vino blanco y zuccini asada.",
-    image: "imagenes/fotos del lugar y platillos/pasta-con-camarones.jpg",
-    badge: "Gourmet",
-    popular: true
+    id: "pq2", name: "Pellizcada / Quesadilla de Tripa", category: "tacos", price: 85.00,
+    description: "Con queso fundido y tripa bien doradita.",
+    image: "imagenes/fotos del lugar y platillos/tacos2.jpg"
+  },
+
+  // ============================================================
+  // BURRITAS, BAGUETTES, FAJITAS Y SANDWICHES
+  // ============================================================
+  {
+    id: "bu1", name: "Burrita de Pollo", category: "burritas", price: 140.00,
+    description: "Tortilla de harina grande, untada con guacamole, queso manchego, lechuga picada, guisado tipo fajitas y papas francesas.",
+    image: "imagenes/fotos del lugar y platillos/burritos.jpg"
   },
   {
-    id: "pa3",
-    name: "Lasaña Boloñesa a la Leña",
-    category: "pastas",
-    price: 229.00,
-    description: "Ragú de res, bechamel, mix de quesos horneada a la leña con ensalada fresca.",
+    id: "bu2", name: "Burrita de Res", category: "burritas", price: 155.00,
+    description: "Tortilla de harina grande, untada con guacamole, queso manchego, lechuga picada, guisado tipo fajitas y papas francesas.",
+    image: "imagenes/fotos del lugar y platillos/burritos.jpg", popular: true
+  },
+  {
+    id: "bu3", name: "Burrita de Camarón", category: "burritas", price: 175.00,
+    description: "Tortilla de harina grande, untada con guacamole, queso manchego, lechuga picada, guisado tipo fajitas y papas francesas.",
+    image: "imagenes/fotos del lugar y platillos/burritos.jpg"
+  },
+  {
+    id: "fj1", name: "Fajitas de Pollo", category: "burritas", price: 139.00,
+    description: "Salteado de cebolla, morrón, tomate, gratinado con queso, toque de salsas negras y jugo de naranja, con pasta blanca y ensalada de la casa.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg"
+  },
+  {
+    id: "fj2", name: "Fajitas de Res", category: "burritas", price: 149.00,
+    description: "Salteado de cebolla, morrón, tomate, gratinado con queso, toque de salsas negras y jugo de naranja, con pasta blanca y ensalada de la casa.",
+    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg", popular: true
+  },
+  {
+    id: "fj3", name: "Fajitas de Camarón", category: "burritas", price: 179.00,
+    description: "Salteado de cebolla, morrón, tomate, gratinado con queso, toque de salsas negras y jugo de naranja, con pasta blanca y ensalada de la casa.",
     image: "imagenes/fotos del lugar y platillos/pasta-con-camarones.jpg"
   },
   {
-    id: "pa4",
-    name: "Burrita Gigante de Res/Camarón",
-    category: "pastas",
-    price: 155.00,
-    description: "Tortilla de harina grande con guacamole, queso manchego, lechuga, fajitas y papas.",
-    image: "imagenes/fotos del lugar y platillos/burritos.jpg",
-    options: ["Res ($155)", "Camarón ($175)", "Pollo ($140)"]
+    id: "bg1", name: "Baguette de Pollo", category: "burritas", price: 92.00,
+    description: "Pan a elección (Blanco, Integral, Ajo, Especias) con pollo, cebolla morada, tomate, lechuga, aguacate, pepino y aderezos de la casa.",
+    image: "imagenes/fotos del lugar y platillos/sandwich.jpg",
+    options: ["Blanco", "Integral", "Ajo", "Especias"]
   },
   {
-    id: "pa5",
-    name: "Club Sandwich Parra's",
-    category: "pastas",
-    price: 169.00,
-    description: "3 panes rellenos de jamón, queso, tocino, pollo, tomate, lechuga, aguacate y papas.",
+    id: "bg2", name: "Baguette de Jamón", category: "burritas", price: 89.00,
+    description: "Pan a elección con jamón, cebolla morada, tomate, lechuga, aguacate, pepino y aderezos de la casa.",
+    image: "imagenes/fotos del lugar y platillos/sandwich.jpg",
+    options: ["Blanco", "Integral", "Ajo", "Especias"]
+  },
+  {
+    id: "bg3", name: "Baguette de Res", category: "burritas", price: 99.00,
+    description: "Pan a elección con res, cebolla morada, tomate, lechuga, aguacate, pepino y aderezos de la casa.",
+    image: "imagenes/fotos del lugar y platillos/sandwich.jpg",
+    options: ["Blanco", "Integral", "Ajo", "Especias"]
+  },
+  {
+    id: "sw1", name: "Sandwich de Pollo", category: "burritas", price: 69.00,
+    description: "Sandwich de pollo con aderezos de la casa.",
+    image: "imagenes/fotos del lugar y platillos/sandwich.jpg"
+  },
+  {
+    id: "sw2", name: "Sandwich de Jamón", category: "burritas", price: 69.00,
+    description: "Sandwich de jamón con aderezos de la casa.",
+    image: "imagenes/fotos del lugar y platillos/sandwich.jpg"
+  },
+  {
+    id: "sw3", name: "Club Sandwich", category: "burritas", price: 169.00,
+    description: "Torre de 3 panes rellenos de jamón, queso amarillo, tocino, queso manchego, pollo, cebolla, tomate, lechuga y aguacate, con papas fritas.",
+    image: "imagenes/fotos del lugar y platillos/sandwich.jpg", badge: "Popular", popular: true
+  },
+  {
+    id: "sw4", name: "Sandwich Fit", category: "burritas", price: 169.00,
+    description: "Pan integral rebanada gruesa, aguacate, espinacas, germinado, pepino, jamón de pechuga de pavo, toque de pesto, panela y yogurth con frutos.",
+    image: "imagenes/fotos del lugar y platillos/sandwich.jpg", badge: "Saludable"
+  },
+  {
+    id: "sw5", name: "New York Sandwich", category: "burritas", price: 169.00,
+    description: "Pan blanco casero rebanada gruesa, esponjoso omelete, tocino, jamón, untable de queso crema, cebolla asada, bolitas de papa y queso de nachos.",
     image: "imagenes/fotos del lugar y platillos/sandwich.jpg"
   },
 
-  // --- BONELESS & BOTEANAS ---
+  // ============================================================
+  // PASTAS
+  // ============================================================
   {
-    id: "s1",
-    name: "Boneles (300 gr)",
-    category: "ensaladas",
-    price: 145.00,
-    description: "300 gr de boneless jugosos bañados en la salsa de tu elección, papas francesas y ranch.",
-    image: "imagenes/fotos del lugar y platillos/boneless-bbq.jpg",
-    badge: "Popular",
-    popular: true,
-    options: ["Salsa BBQ", "BBQ / Hot", "Búfalo", "Tropical", "Chipotle Naranja", "Mango Habanero"]
+    id: "pa1", name: "Pasta Alfredo", category: "pastas", price: 215.00,
+    description: "Fetuccini en salsa alfredo con camarones o pollo a elegir, salteados con ajo y vino blanco, top de zuccini asada y brotes de la casa.",
+    image: "imagenes/fotos del lugar y platillos/pasta-con-camarones.jpg", badge: "Gourmet", popular: true,
+    options: ["Camarones", "Pollo"]
   },
   {
-    id: "s2",
-    name: "Alitas (300 gr)",
-    category: "ensaladas",
-    price: 135.00,
-    description: "Alitas de pollo crujientes bañadas en tu salsa favorita con papas francesas y ranch.",
-    image: "imagenes/fotos del lugar y platillos/boneless.jpg",
-    popular: true,
-    options: ["Salsa BBQ", "BBQ / Hot", "Búfalo", "Tropical", "Chipotle Naranja", "Mango Habanero"]
+    id: "pa2", name: "Pasta al Pesto", category: "pastas", price: 215.00,
+    description: "Fetuccini en pesto cremoso de la casa, arrachera al término de elección, tomate cherry confitado y brotes de la casa.",
+    image: "imagenes/fotos del lugar y platillos/pasta-con-camarones.jpg"
   },
   {
-    id: "s4",
-    name: "Guacamole Especial con Totopos",
-    category: "ensaladas",
-    price: 89.00,
-    description: "Aguacate molido con pepino, cebolla, jitomate, cilantro y totopos recién hechos.",
-    image: "imagenes/fotos del lugar y platillos/comida-evento.jpg"
+    id: "pa3", name: "Lasaña a la Leña", category: "pastas", price: 229.00,
+    description: "Láminas de pasta con ragú de res, salsa bechamel, mix de quesos, gratinada en horno de leña y acompañada de ensalada de la casa.",
+    image: "imagenes/fotos del lugar y platillos/pasta-con-camarones.jpg", badge: "Horno de Leña"
   },
 
-  // --- POSTRES & BEBIDAS ---
+  // ============================================================
+  // CORTES DE CARNE Y PARRILLADAS
+  // ============================================================
   {
-    id: "po1",
-    name: "Brownie Chocolate Supremo",
-    category: "postres",
-    price: 115.00,
-    description: "Brownie de chocolate con azúcar glass, bola de helado y compota de frutos rojos.",
-    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg",
-    popular: true
+    id: "c1", name: "Rib Eye (350 gr)", category: "cortes", price: 335.00,
+    description: "350 gr de Rib eye, acompañado de 2 guarniciones a elegir: Puré de Papa, Frijoles Puercos, Ensalada de la Casa, Elote Asado o Cebollitas Asadas.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", badge: "Premium", popular: true,
+    options: ["Puré de Papa", "Frijoles Puercos", "Ensalada de la Casa", "Elote Asado", "Cebollitas Asadas"]
   },
   {
-    id: "b1",
-    name: "Sodas con Jellys",
-    category: "bebidas",
-    price: 89.00,
-    description: "Soda refrescante con perlas popping jellys: Pink Limonada, Blueberry o Maracuyá.",
+    id: "c2", name: "Arrachera (320 gr)", category: "cortes", price: 305.00,
+    description: "320 gr de Arrachera acompañado con 2 guarniciones a elegir.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", popular: true,
+    options: ["Puré de Papa", "Frijoles Puercos", "Ensalada de la Casa", "Elote Asado", "Cebollitas Asadas"]
+  },
+  {
+    id: "c3", name: "Cow Boy (400 gr)", category: "cortes", price: 395.00,
+    description: "400 gr de Cowboy acompañado con 2 guarniciones a elegir.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg",
+    options: ["Puré de Papa", "Frijoles Puercos", "Ensalada de la Casa", "Elote Asado", "Cebollitas Asadas"]
+  },
+  {
+    id: "c4", name: "T-Bone (500 gr)", category: "cortes", price: 445.00,
+    description: "500 gr de T-Bone, asado al término de elección, con 2 guarniciones a elegir.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", badge: "Gran Corte",
+    options: ["Puré de Papa", "Frijoles Puercos", "Ensalada de la Casa", "Elote Asado", "Cebollitas Asadas"]
+  },
+  {
+    id: "c5", name: "Costilla BBQ", category: "cortes", price: 275.00,
+    description: "Costillar de cerdo ahumado y horneado con salsa bbq, acompañado de elote amarillo y puré de papa.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg"
+  },
+  {
+    id: "c6", name: "Pechuga de Pollo a las Brasas", category: "cortes", price: 275.00,
+    description: "Pechuga de pollo asada a las brasas, acompañado con ensalada de casa y puré de papa.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg"
+  },
+  // PARRILLADAS
+  {
+    id: "pr1", name: "Parrillada Pareja", category: "cortes", price: 800.00,
+    description: "Rib eye 350 gr, chistorra, 2 guarniciones a elección y 1 jarra de clericot.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", badge: "Para 2", popular: true
+  },
+  {
+    id: "pr2", name: "Parrillada Amigos (~4 personas)", category: "cortes", price: 880.00,
+    description: "½ Kg Sirloin, Arrachera 300 gr, orden de chorizo argentino, frijoles puercos, 5 quesadillas de harina, cebollitas asadas, tortillas y salsas.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", badge: "Compartir", popular: true
+  },
+  {
+    id: "pr3", name: "Parrillada Familia (~6-8 personas)", category: "cortes", price: 1400.00,
+    description: "½ Kg Sirloin, Rib eye 350 gr, Arrachera 300 gr, Chistorra, Chorizo Argentino, Frijoles Puercos, Guacamole, 8 quesadillas de harina, cebollitas asadas, tortillas y salsas.",
+    image: "imagenes/fotos del lugar y platillos/charola-carne-asada.jpg", badge: "Banquete"
+  },
+
+  // ============================================================
+  // POSTRES
+  // ============================================================
+  {
+    id: "po1", name: "Brownie de Chocolate", category: "postres", price: 115.00,
+    description: "Húmedo y chocolatoso brownie de chocolate, espolvoreado con azúcar glass, bola de helado y compota de frutos rojos.",
+    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg", badge: "Favorito", popular: true
+  },
+  {
+    id: "po2", name: "Copa de Helado", category: "postres", price: 45.00,
+    description: "Copita con helado de la casa, top de chocolate líquido y chispitas de colores. Consultar sabores con tu mesero.",
+    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg"
+  },
+  {
+    id: "po3", name: "Flan Napolitano", category: "postres", price: 89.00,
+    description: "Cremoso flan con caramelo, top de crema batida, fresa y tropiezos de nuez.",
+    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg"
+  },
+  {
+    id: "po4", name: "Crepas Dulces", category: "postres", price: 89.00,
+    description: "Rellena de dulce a elección, fruta del día coronada con helado.",
+    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg",
+    options: ["Nutella", "Cajeta", "Lechera"]
+  },
+  {
+    id: "po5", name: "Hot Cakes", category: "postres", price: 115.00,
+    description: "3 piezas de esponjosos hot cakes, con top de fruta, cuadrito de mantequilla y dulce a elección.",
+    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg",
+    options: ["Miel de Maple", "Cajeta", "Nutella"]
+  },
+  {
+    id: "po6", name: "Pan Francés", category: "postres", price: 119.00,
+    description: "Crema sabor vainilla, coronada con azúcar caramelizada y frutos rojos.",
+    image: "imagenes/fotos del lugar y platillos/roles-canela.jpg"
+  },
+
+  // ============================================================
+  // BEBIDAS SIN ALCOHOL
+  // ============================================================
+  {
+    id: "b1", name: "Café Americano (Refil)", category: "bebidas", price: 40.00,
+    description: "Café americano con relleno incluido.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
+  },
+  {
+    id: "b2", name: "Capuccino", category: "bebidas", price: 48.00,
+    description: "Capuccino clásico.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
+  },
+  {
+    id: "b3", name: "Capuccino Vainilla o Caramelo", category: "bebidas", price: 55.00,
+    description: "Capuccino caliente sabor vainilla o caramelo.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
-    popular: true,
+    options: ["Vainilla", "Caramelo"]
+  },
+  {
+    id: "b4", name: "Refresco 600ml", category: "bebidas", price: 37.00,
+    description: "Refresco 600 ml de la marca de tu preferencia.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
+  },
+  {
+    id: "b5", name: "Agua Fresca / Limonada / Jugos", category: "bebidas", price: 25.00,
+    description: "Limonada / Naranjada / Fresada (500ml $49 | 1Lt $89). Limonjito (500ml $55). Agua Fresca (500ml $25 | 1Lt $50). Jugo Naranja (500ml $49). Jugo Verde (500ml $65).",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["Limonada", "Naranjada", "Fresada", "Limonjito", "Agua Fresca", "Jugo Naranja", "Jugo Verde"]
+  },
+  {
+    id: "b6", name: "Malteada", category: "bebidas", price: 54.00,
+    description: "Malteada cremosa artesanal. 500ml: $54 | 1Lt: $95.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["Plátano", "Vainilla", "Chocolate", "Fresa", "Frutos Rojos"]
+  },
+  {
+    id: "b7", name: "Soda con Jellys (Base Limonada)", category: "bebidas", price: 89.00,
+    description: "Soda refrescante con perlas popping jellys. Sabores: Pink Limonada, Blueberry o Maracuyá.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Trendy", popular: true,
     options: ["Pink Limonada", "Blueberry", "Maracuyá"]
   },
   {
-    id: "b3",
-    name: "Cantarito con Tequila",
-    category: "bebidas",
-    price: 95.00,
-    description: "Tequila, controy, sal, limón, naranja y refresco de toronja Squirt en cantarito.",
-    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
-    badge: "Coctel",
-    popular: true
+    id: "b8", name: "Latte con Jellys (Base Leche)", category: "bebidas", price: 99.00,
+    description: "Café frío cremoso con perlas popping jellys.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Trendy",
+    options: ["Café y Vainilla", "Café y Caramelo"]
+  },
+  // COCTELES
+  {
+    id: "b9", name: "Mojito", category: "bebidas", price: 95.00,
+    description: "Ron, menta, jarabe, jugo de limón, sprite.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
   },
   {
-    id: "b4",
-    name: "Mezcalita de Sabor",
-    category: "bebidas",
-    price: 115.00,
-    description: "Mezcal artesanal, jugo de limón, sal y jarabe. Sabores: Jamaica, Maracuyá o Frutos Rojos.",
-    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    id: "b10", name: "Piña Colada", category: "bebidas", price: 99.00,
+    description: "Ron, jugo de piña, kalahua y carnation.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
+  },
+  {
+    id: "b11", name: "Margarita (Elige Sabor)", category: "bebidas", price: 95.00,
+    description: "Tequila, sal, jugo de limón, contoy y squirt. Sabores: Limón, Fresa o Maracuyá.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel", popular: true,
+    options: ["Limón", "Fresa", "Maracuyá"]
+  },
+  {
+    id: "b12", name: "Cantarito", category: "bebidas", price: 95.00,
+    description: "Tequila, controy, sal, limón, jugo naranja y squirt.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel", popular: true
+  },
+  {
+    id: "b13", name: "Azulito", category: "bebidas", price: 95.00,
+    description: "Vodka, blue curazo y sprite.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
+  },
+  {
+    id: "b14", name: "Gin Tonic / Frutos Rojos", category: "bebidas", price: 99.00,
+    description: "Ginebra, jugo de limón y agua tónica con frutos rojos.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
+  },
+  {
+    id: "b15", name: "Clericot", category: "bebidas", price: 99.00,
+    description: "Vino tinto, jarabe, jugo limón, sprite, mix de frutos macerados.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
+  },
+  {
+    id: "b16", name: "Española", category: "bebidas", price: 92.00,
+    description: "Vino tinto, cerveza clara, granadina.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
+  },
+  {
+    id: "b17", name: "Carajillo", category: "bebidas", price: 119.00,
+    description: "Licor 43, café espresso.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
+  },
+  {
+    id: "b18", name: "Mezcalita (Elige Sabor)", category: "bebidas", price: 115.00,
+    description: "Mezcal artesanal, jugo de limón, sal y jarabe natural. Sabores: Jamaica, Maracuyá o Frutos Rojos.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel", popular: true,
     options: ["Jamaica", "Maracuyá", "Frutos Rojos"]
+  },
+  // CERVEZAS Y MICHELADAS
+  {
+    id: "b19", name: "Michelada", category: "bebidas", price: 85.00,
+    description: "Clásica: $85. Tamarindo o Mango: $92.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Chela",
+    options: ["Clásica ($85)", "Tamarindo ($92)", "Mango ($92)"]
+  },
+  {
+    id: "b20", name: "Cerveza Media (355ml)", category: "bebidas", price: 45.00,
+    description: "Miller, Indio, XX Laguer, Ultra, TKT Light, Heineken, Corona Extra, Corona Light, Pacífico, Pacífico Suave — $45. Modelo Especial / Negra Modelo — $55.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Chela",
+    options: ["Miller $45", "Indio $45", "XX Laguer $45", "Heineken $45", "Corona Extra $45", "Pacífico $45", "Modelo Especial $55", "Negra Modelo $55"]
   }
 ];
+
+
 
 // --- GALLERY DATASET ---
 const GALLERY_DATA = [
@@ -454,58 +795,121 @@ function initPromoDayHighlight() {
   }
 }
 
-// --- RENDER MENU (SMART COMPACT GRID) ---
+// --- CATEGORY CONFIG FOR SECTION HEADERS ---
+const CATEGORY_CONFIG = {
+  desayunos:    { label: "Desayunos",              icon: "fa-egg",           subtitle: "Chilaquiles · Omeletes · Huevos · Guisados" },
+  especiales:   { label: "Especiales del Chef",    icon: "fa-star",          subtitle: "Platillos premium de temporada" },
+  ensaladas:    { label: "Ensaladas de la Casa",   icon: "fa-leaf",          subtitle: "Frescas y balanceadas con proteína a elegir" },
+  snacks:       { label: "Para Empezar & Snacks",  icon: "fa-cookie-bite",   subtitle: "Para botanear o compartir" },
+  alitas:       { label: "Alitas & Boneles",       icon: "fa-fire-burner",   subtitle: "6 salsas a elegir · BBQ, Búfalo, Mango/Habanero…" },
+  pizzas:       { label: "Pizzas a la Leña",       icon: "fa-pizza-slice",   subtitle: "Horneadas en horno de leña artesanal" },
+  hamburguesas: { label: "Hamburguesas & Smash",   icon: "fa-burger",        subtitle: "Clásicas, Smash y opciones de pollo" },
+  hotdogs:      { label: "Hot Dogs",               icon: "fa-hotdog",        subtitle: "Dorados y llenos de sabor" },
+  tacos:        { label: "Tacos, Fifís & Quesadillas", icon: "fa-pepper-hot","subtitle": "Tacos Fifís premium · Tacos sencillos · Pellizcadas" },
+  burritas:     { label: "Burritas, Fajitas & Sandwiches", icon: "fa-utensils", subtitle: "Burritas · Baguettes · Fajitas · Club Sandwich" },
+  pastas:       { label: "Pastas",                 icon: "fa-bowl-food",     subtitle: "Fetuccini Alfredo · Pesto · Lasaña a la leña" },
+  cortes:       { label: "Cortes de Carne & Parrilladas", icon: "fa-drumstick-bite", subtitle: "Rib Eye · Arrachera · T-Bone · Parrilladas" },
+  postres:      { label: "Postres",                icon: "fa-cookie",        subtitle: "El dulce final perfecto" },
+  bebidas:      { label: "Bebidas & Coctelería",   icon: "fa-wine-glass",    subtitle: "Sin alcohol · Cocteles · Cervezas · Micheladas" }
+};
+
+const CATEGORY_ORDER = [
+  "desayunos","especiales","ensaladas","pizzas","hamburguesas","hotdogs",
+  "tacos","burritas","pastas","cortes","alitas","snacks","postres","bebidas"
+];
+
+// --- RENDER MENU (FULL GROUPED LAYOUT) ---
 function renderMenu() {
   const grid = document.getElementById("menu-grid");
   const expandContainer = document.getElementById("menu-expand-container");
   if (!grid) return;
+  if (expandContainer) expandContainer.innerHTML = "";
 
-  let filtered = MENU_DATA;
-
-  if (currentCategory !== "todos") {
-    filtered = filtered.filter(item => item.category === currentCategory);
-  }
-
+  // Search mode: flat filtered list across all categories
   if (searchQuery.trim() !== "") {
     const q = searchQuery.toLowerCase();
-    filtered = filtered.filter(item => 
-      item.name.toLowerCase().includes(q) || 
+    const filtered = MENU_DATA.filter(item =>
+      item.name.toLowerCase().includes(q) ||
       item.description.toLowerCase().includes(q)
     );
-  }
-
-  if (filtered.length === 0) {
-    grid.innerHTML = `
-      <div class="col-span-full text-center py-8 bg-white rounded-2xl border border-stone-200 p-6">
-        <i class="fa-solid fa-utensils text-3xl text-stone-300 mb-2"></i>
-        <h3 class="text-base font-bold text-stone-700">No encontramos platillos con "${searchQuery}"</h3>
-        <button onclick="clearSearch()" class="mt-3 px-4 py-1.5 bg-[#c04828] text-white font-bold text-xs rounded-full shadow-md">Ver todo el menú</button>
-      </div>
-    `;
-    if (expandContainer) expandContainer.innerHTML = "";
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full text-center py-8 bg-white rounded-2xl border border-stone-200 p-6">
+          <i class="fa-solid fa-utensils text-3xl text-stone-300 mb-2 block"></i>
+          <h3 class="text-base font-bold text-stone-700 mt-2">No encontramos platillos con "${searchQuery}"</h3>
+          <button onclick="clearSearch()" class="mt-3 px-4 py-1.5 bg-[#c04828] text-white font-bold text-xs rounded-full shadow-md">Ver todo el menú</button>
+        </div>
+      `;
+      return;
+    }
+    grid.innerHTML = `<div class="col-span-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">${filtered.map(item => renderItemCard(item)).join('')}</div>`;
     return;
   }
 
-  // Determine items to display (compact limit vs expanded)
-  const totalCount = filtered.length;
-  const showLimit = (!isExpandedCategory && searchQuery.trim() === "") ? COMPACT_LIMIT : totalCount;
-  const itemsToDisplay = filtered.slice(0, showLimit);
+  // Single category mode: show all items of that category
+  if (currentCategory !== "todos") {
+    const filtered = MENU_DATA.filter(item => item.category === currentCategory);
+    const cfg = CATEGORY_CONFIG[currentCategory] || { label: currentCategory, icon: "fa-utensils", subtitle: "" };
+    grid.innerHTML = `
+      ${renderSectionHeader(cfg, filtered.length)}
+      <div class="col-span-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+        ${filtered.map(item => renderItemCard(item)).join('')}
+      </div>
+    `;
+    return;
+  }
 
-  grid.innerHTML = itemsToDisplay.map(item => `
+  // "Todos" mode: show all categories as sections
+  let html = "";
+  CATEGORY_ORDER.forEach(cat => {
+    const items = MENU_DATA.filter(item => item.category === cat);
+    if (items.length === 0) return;
+    const cfg = CATEGORY_CONFIG[cat] || { label: cat, icon: "fa-utensils", subtitle: "" };
+    html += `
+      <div class="col-span-full" id="section-${cat}">
+        ${renderSectionHeader(cfg, items.length)}
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+          ${items.map(item => renderItemCard(item)).join('')}
+        </div>
+      </div>
+    `;
+  });
+  grid.innerHTML = html;
+}
+
+function renderSectionHeader(cfg, count) {
+  return `
+    <div class="col-span-full flex items-center gap-3 mb-2 mt-4 pt-4 border-t border-stone-200 first:border-0 first:mt-0 first:pt-0">
+      <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#c04828]/10 flex items-center justify-center">
+        <i class="fa-solid ${cfg.icon} text-[#c04828] text-sm"></i>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="font-serif text-base font-bold text-stone-900 leading-tight">${cfg.label}</h3>
+        ${cfg.subtitle ? `<p class="text-[10px] text-stone-400 leading-tight truncate">${cfg.subtitle}</p>` : ''}
+      </div>
+      <span class="flex-shrink-0 text-[10px] font-bold text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">${count} opciones</span>
+    </div>
+  `;
+}
+
+function renderItemCard(item) {
+  const priceDisplay = item.price === 0 ? '<span class="font-bold text-[#1e6b52] text-xs whitespace-nowrap">Consultar</span>' : `<span class="font-bold text-[#c04828] text-sm whitespace-nowrap">$${item.price.toFixed(2)}</span>`;
+  const badgeClass = item.badge && (item.badge.includes('Smash') || item.badge.includes('Fifí') || item.badge.includes('Gourmet') || item.badge.includes('Horno')) ? 'bg-[#1e6b52] text-white' : 'bg-[#c04828] text-white';
+  return `
     <div class="dish-card animate-fade-in">
       <div class="dish-img-wrapper" onclick="openDishDetailModal('${item.id}')">
         <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='imagenes/poster.png'">
-        ${item.badge ? `<span class="dish-badge-tag ${item.badge.includes('Smash') || item.badge.includes('Fifí') ? 'bg-[#1e6b52] text-white' : 'bg-[#c04828] text-white'}">${item.badge}</span>` : ''}
+        ${item.badge ? `<span class="dish-badge-tag ${badgeClass}">${item.badge}</span>` : ''}
+        ${item.popular ? `<span class="absolute top-1 left-1 bg-amber-400 text-stone-900 text-[9px] font-extrabold px-1.5 py-0.5 rounded-full leading-none">⭐ Popular</span>` : ''}
       </div>
       <div class="p-3 flex-1 flex flex-col justify-between">
         <div>
           <div class="flex justify-between items-start gap-1 mb-1">
-            <h3 class="font-serif text-sm font-bold text-stone-900 leading-tight line-clamp-1 cursor-pointer" onclick="openDishDetailModal('${item.id}')">${item.name}</h3>
-            <span class="font-bold text-[#c04828] text-sm whitespace-nowrap">$${item.price.toFixed(2)}</span>
+            <h3 class="font-serif text-sm font-bold text-stone-900 leading-tight line-clamp-2 cursor-pointer" onclick="openDishDetailModal('${item.id}')">${item.name}</h3>
+            ${priceDisplay}
           </div>
           <p class="text-[11px] text-stone-500 leading-snug line-clamp-2 mb-2">${item.description}</p>
         </div>
-
         ${item.options ? `
           <div class="mb-2">
             <select id="option-select-${item.id}" class="w-full text-[11px] bg-stone-50 border border-stone-300 rounded-md p-1 font-medium focus:ring-1 focus:ring-[#c04828] outline-none">
@@ -513,35 +917,13 @@ function renderMenu() {
             </select>
           </div>
         ` : ''}
-
         <button onclick="addToCart('${item.id}')" class="w-full py-2 px-3 bg-[#1e6b52] hover:bg-[#15503d] text-white text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition active:scale-95">
           <i class="fa-solid fa-plus text-[10px]"></i>
-          <span>Agregar</span>
+          <span>Agregar al pedido</span>
         </button>
       </div>
     </div>
-  `).join('');
-
-  // Expand / Show More Button
-  if (expandContainer) {
-    if (totalCount > COMPACT_LIMIT && !isExpandedCategory && searchQuery.trim() === "") {
-      expandContainer.innerHTML = `
-        <button onclick="toggleExpandMenu()" class="w-full sm:w-auto px-6 py-3 bg-stone-900 hover:bg-[#c04828] text-white font-bold text-xs rounded-full shadow-lg transition flex items-center justify-center gap-2 mx-auto">
-          <span>Ver los ${totalCount - COMPACT_LIMIT} platillos más en esta sección</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
-      `;
-    } else if (isExpandedCategory && totalCount > COMPACT_LIMIT) {
-      expandContainer.innerHTML = `
-        <button onclick="toggleExpandMenu()" class="w-full sm:w-auto px-6 py-2.5 bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xs rounded-full transition flex items-center justify-center gap-2 mx-auto">
-          <span>Mostrar menos</span>
-          <i class="fa-solid fa-chevron-up"></i>
-        </button>
-      `;
-    } else {
-      expandContainer.innerHTML = "";
-    }
-  }
+  `;
 }
 
 function toggleExpandMenu() {
@@ -552,18 +934,23 @@ function toggleExpandMenu() {
 // --- CATEGORY FILTERING ---
 function filterCategory(category, btnElement) {
   currentCategory = category;
-  isExpandedCategory = false; // Reset compact state on category switch
+  isExpandedCategory = false;
 
   document.querySelectorAll(".menu-tab-btn").forEach(b => b.classList.remove("active"));
-  if (btnElement) {
-    btnElement.classList.add("active");
-  }
+  if (btnElement) btnElement.classList.add("active");
 
   renderMenu();
+  // Scroll menu section into view smoothly on mobile
+  const menuSection = document.getElementById("menu");
+  if (menuSection) menuSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function handleSearch(val) {
   searchQuery = val;
+  currentCategory = "todos";
+  document.querySelectorAll(".menu-tab-btn").forEach(b => b.classList.remove("active"));
+  const todosBtn = document.querySelector(".menu-tab-btn");
+  if (todosBtn) todosBtn.classList.add("active");
   renderMenu();
 }
 

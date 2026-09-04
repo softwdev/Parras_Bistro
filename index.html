@@ -84,7 +84,7 @@
         </h1>
 
         <p class="text-stone-200 text-xs sm:text-base leading-relaxed max-w-xl">
-          Pizzas a la leña, smash burgers jugosas, cortes finos, desayunos, pastas y coctelería en Santiago Ixcuintla, Nayarit.
+          Pizzas a la leña, hamburguesas, cortes, desayunos, pastas y coctelería en Santiago Ixcuintla, Nayarit.
         </p>
 
         <!-- Compact Action Buttons Grid -->
@@ -186,23 +186,28 @@
     <div class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-6 no-scrollbar justify-start md:justify-center">
       <button onclick="filterCategory('todos', this)" class="menu-tab-btn active"><i class="fa-solid fa-border-all text-xs"></i> Todos</button>
       <button onclick="filterCategory('desayunos', this)" class="menu-tab-btn"><i class="fa-solid fa-egg text-xs"></i> Desayunos</button>
+      <button onclick="filterCategory('especiales', this)" class="menu-tab-btn"><i class="fa-solid fa-star text-xs"></i> Especiales</button>
       <button onclick="filterCategory('pizzas', this)" class="menu-tab-btn"><i class="fa-solid fa-pizza-slice text-xs"></i> Pizzas</button>
-      <button onclick="filterCategory('hamburguesas', this)" class="menu-tab-btn"><i class="fa-solid fa-burger text-xs"></i> Smash Burgers</button>
+      <button onclick="filterCategory('hamburguesas', this)" class="menu-tab-btn"><i class="fa-solid fa-burger text-xs"></i> Hamburguesas</button>
+      <button onclick="filterCategory('hotdogs', this)" class="menu-tab-btn"><i class="fa-solid fa-hotdog text-xs"></i> Hot Dogs</button>
       <button onclick="filterCategory('cortes', this)" class="menu-tab-btn"><i class="fa-solid fa-drumstick-bite text-xs"></i> Cortes</button>
       <button onclick="filterCategory('tacos', this)" class="menu-tab-btn"><i class="fa-solid fa-pepper-hot text-xs"></i> Tacos</button>
+      <button onclick="filterCategory('burritas', this)" class="menu-tab-btn"><i class="fa-solid fa-utensils text-xs"></i> Burritas</button>
       <button onclick="filterCategory('pastas', this)" class="menu-tab-btn"><i class="fa-solid fa-bowl-food text-xs"></i> Pastas</button>
-      <button onclick="filterCategory('ensaladas', this)" class="menu-tab-btn"><i class="fa-solid fa-fire-burner text-xs"></i> Boneless</button>
+      <button onclick="filterCategory('ensaladas', this)" class="menu-tab-btn"><i class="fa-solid fa-leaf text-xs"></i> Ensaladas</button>
+      <button onclick="filterCategory('alitas', this)" class="menu-tab-btn"><i class="fa-solid fa-fire-burner text-xs"></i> Alitas & Boneles</button>
+      <button onclick="filterCategory('snacks', this)" class="menu-tab-btn"><i class="fa-solid fa-cookie-bite text-xs"></i> Snacks</button>
       <button onclick="filterCategory('postres', this)" class="menu-tab-btn"><i class="fa-solid fa-cookie text-xs"></i> Postres</button>
       <button onclick="filterCategory('bebidas', this)" class="menu-tab-btn"><i class="fa-solid fa-wine-glass text-xs"></i> Bebidas</button>
     </div>
 
-    <!-- Compact 2-Column Mobile Grid -->
-    <div id="menu-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-      <!-- Dynamic Items -->
+    <!-- Full Menu Grouped by Category — rendered by app.js renderMenu() -->
+    <div id="menu-grid" class="space-y-2">
+      <!-- Dynamic Items injected by renderMenu() -->
     </div>
 
-    <!-- Expand / Show More Container (Keeps page scroll short) -->
-    <div id="menu-expand-container" class="mt-6 text-center"></div>
+    <!-- Expand container (kept for compatibility) -->
+    <div id="menu-expand-container" class="mt-4 text-center"></div>
 
   </section>
 
@@ -417,6 +422,7 @@
     <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
       <p class="font-bold text-white font-serif text-sm">Parra's Bistro • Desde 2017</p>
       <p>© 2026 Parra's Bistro. Santiago Ixcuintla, Nayarit, México.</p>
+      <p class="dev-credit" color="white">Sitio desarrollado por: softwdev | <a href="https://wa.me/523231434736?text=Hola%2C%20quiero%20un%20sitio%20web%20como%20el%20de%20Tortas%20Vicky"><button><strong>Quiero un sitio así</strong></button></a></p>
     </div>
   </footer>
 
@@ -479,7 +485,6 @@
             <select id="cart-order-type" onchange="toggleAddressInput(this.value)" class="w-full bg-white border border-stone-300 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#c04828]">
               <option value="Para Llevar">Pasar a Recoger</option>
               <option value="Domicilio">A Domicilio</option>
-              <option value="Comer en Restaurante">En Restaurante</option>
             </select>
           </div>
         </div>
