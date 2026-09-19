@@ -1,0 +1,1 @@
+El sitio web necesita validar que la dirección del envio solo sea en santiago ixcuintla nayarit, no a ningun otro lado, solo en esa ciudad, además agrega la función de poder seleccionar exactamente la ubicación de envio en google maps, usando la api de google maps, y que esa dirección quede registrada en el mensaje, o sea, en el campo dirección

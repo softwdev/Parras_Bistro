@@ -119,6 +119,7 @@
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
         <input id="menu-search-input" type="text" placeholder="Buscar platillo, pizza, boneless..." class="w-full pl-9 pr-4 py-2.5 bg-white border border-stone-300 rounded-full text-xs shadow-sm focus:ring-2 focus:ring-[#c04828] outline-none">
       </div>
+      <span id="menu-search-feedback" class="text-stone-500 text-[15px] mt-1 block text-center">Deslice para ver más &rarr;</span>
     </div>
 
     <!-- Category Tabs Filter -->
@@ -136,8 +137,8 @@
       <button data-category="ensaladas"    onclick="filterCategory('ensaladas', this)"    class="menu-tab-btn"><i class="fa-solid fa-leaf text-xs"></i> Ensaladas</button>
       <button data-category="alitas"       onclick="filterCategory('alitas', this)"       class="menu-tab-btn"><i class="fa-solid fa-fire-burner text-xs"></i> Alitas & Boneles</button>
       <button data-category="snacks"       onclick="filterCategory('snacks', this)"       class="menu-tab-btn"><i class="fa-solid fa-cookie-bite text-xs"></i> Snacks</button>
-      <button data-category="postres"      onclick="filterCategory('postres', this)"      class="menu-tab-btn"><i class="fa-solid fa-cookie text-xs"></i> Postres</button>
-      <button data-category="bebidas"      onclick="filterCategory('bebidas', this)"      class="menu-tab-btn"><i class="fa-solid fa-wine-glass text-xs"></i> Bebidas</button>
+      <button data-category="postres"   onclick="filterCategory('postres', this)"   class="menu-tab-btn"><i class="fa-solid fa-cookie text-xs"></i> Postres</button>
+      <button data-category="bebidas"   onclick="filterCategory('bebidas', this)"   class="menu-tab-btn"><i class="fa-solid fa-wine-glass text-xs"></i> Bebidas</button>
     </div>
 
     <!-- Full Menu Grouped by Category — rendered by app.js renderMenu() -->
@@ -159,7 +160,6 @@
           <span class="text-[10px] font-extrabold tracking-widest text-[#c04828] uppercase bg-[#fbeee9] px-2.5 py-1 rounded-full">Promociones Semanales</span>
           <h2 class="font-serif text-xl sm:text-3xl font-bold text-stone-900 mt-1">Días Especiales en Parra's</h2>
         </div>
-        <span class="text-xs text-stone-500 hidden sm:inline">Desliza para ver más &rarr;</span>
       </div>
 
       <!-- Horizontal Swipe Slider on Mobile -->

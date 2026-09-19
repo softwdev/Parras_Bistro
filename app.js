@@ -621,115 +621,211 @@ const MENU_DATA = [
   // BEBIDAS SIN ALCOHOL
   // ============================================================
   {
-    id: "b1", name: "Café Americano (Refil)", category: "bebidas", price: 40.00,
+    id: "bna1", name: "Café Americano (Refil)", category: "bebidas", subcategory: "sin_alcohol", price: 40.00,
     description: "Café americano con relleno incluido.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
   },
   {
-    id: "b2", name: "Capuccino", category: "bebidas", price: 48.00,
+    id: "bna2", name: "Capuccino", category: "bebidas", subcategory: "sin_alcohol", price: 48.00,
     description: "Capuccino clásico.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
   },
   {
-    id: "b3", name: "Capuccino Vainilla o Caramelo", category: "bebidas", price: 55.00,
+    id: "bna3", name: "Capuccino Vainilla o Caramelo", category: "bebidas", subcategory: "sin_alcohol", price: 55.00,
     description: "Capuccino caliente sabor vainilla o caramelo.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
     options: ["Vainilla", "Caramelo"]
   },
   {
-    id: "b4", name: "Refresco 600ml", category: "bebidas", price: 37.00,
+    id: "bna4", name: "Refresco 600 ml", category: "bebidas", subcategory: "sin_alcohol", price: 37.00,
     description: "Refresco 600 ml de la marca de tu preferencia.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
   },
   {
-    id: "b5", name: "Agua Fresca / Limonada / Jugos", category: "bebidas", price: 25.00,
-    description: "Limonada / Naranjada / Fresada (500ml $49 | 1Lt $89). Limonjito (500ml $55). Agua Fresca (500ml $25 | 1Lt $50). Jugo Naranja (500ml $49). Jugo Verde (500ml $65).",
-    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
-    options: ["Limonada", "Naranjada", "Fresada", "Limonjito", "Agua Fresca", "Jugo Naranja", "Jugo Verde"]
+    id: "bna5", name: "Fuze Té", category: "bebidas", subcategory: "sin_alcohol", price: 37.00,
+    description: "Fuze Té 400 ml.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
   },
   {
-    id: "b6", name: "Malteada", category: "bebidas", price: 54.00,
-    description: "Malteada cremosa artesanal. 500ml: $54 | 1Lt: $95.",
+    id: "bna6", name: "Agua Mineral", category: "bebidas", subcategory: "sin_alcohol", price: 37.00,
+    description: "Agua mineral fría.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg"
+  },
+  {
+    id: "bna7", name: "Limonada", category: "bebidas", subcategory: "sin_alcohol", price: 49.00,
+    description: "Limonada natural. 500ml: $49 | 1 Lt: $89.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["500 ml ($49)", "1 Litro ($89)"]
+  },
+  {
+    id: "bna8", name: "Naranjada", category: "bebidas", subcategory: "sin_alcohol", price: 49.00,
+    description: "Naranjada natural. 500ml: $49 | 1 Lt: $89.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["500 ml ($49)", "1 Litro ($89)"]
+  },
+  {
+    id: "bna9", name: "Fresada", category: "bebidas", subcategory: "sin_alcohol", price: 49.00,
+    description: "Fresada natural. 500ml: $49 | 1 Lt: $89.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["500 ml ($49)", "1 Litro ($89)"]
+  },
+  {
+    id: "bna10", name: "Limonjito", category: "bebidas", subcategory: "sin_alcohol", price: 55.00,
+    description: "Limonjito refrescante. 500ml: $55 | 1 Lt: $95.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["500 ml ($55)", "1 Litro ($95)"]
+  },
+  {
+    id: "bna11", name: "Agua Fresca", category: "bebidas", subcategory: "sin_alcohol", price: 25.00,
+    description: "Agua fresca del día. 500ml: $25 | 1 Lt: $50.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["500 ml ($25)", "1 Litro ($50)"]
+  },
+  {
+    id: "bna12", name: "Jugo de Naranja", category: "bebidas", subcategory: "sin_alcohol", price: 49.00,
+    description: "Jugo de naranja natural. 500ml: $49 | 1 Lt: $89.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["500 ml ($49)", "1 Litro ($89)"]
+  },
+  {
+    id: "bna13", name: "Jugo Verde", category: "bebidas", subcategory: "sin_alcohol", price: 65.00,
+    description: "Jugo verde natural. 500ml: $65 | 1 Lt: $100.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg",
+    options: ["500 ml ($65)", "1 Litro ($100)"]
+  },
+  {
+    id: "bna14", name: "Malteada", category: "bebidas", subcategory: "sin_alcohol", price: 54.00,
+    description: "Malteada cremosa artesanal. 500ml: $54 | 1Lt: $95.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", popular: true,
     options: ["Plátano", "Vainilla", "Chocolate", "Fresa", "Frutos Rojos"]
   },
   {
-    id: "b7", name: "Soda con Jellys (Base Limonada)", category: "bebidas", price: 89.00,
-    description: "Soda refrescante con perlas popping jellys. Sabores: Pink Limonada, Blueberry o Maracuyá.",
+    id: "bna15", name: "Soda con Jellys (Base Limonada)", category: "bebidas", subcategory: "sin_alcohol", price: 89.00,
+    description: "Soda refrescante con perlas popping jellys. Pink Limonada, Blueberry o Maracuyá.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Trendy", popular: true,
     options: ["Pink Limonada", "Blueberry", "Maracuyá"]
   },
   {
-    id: "b8", name: "Latte con Jellys (Base Leche)", category: "bebidas", price: 99.00,
-    description: "Café frío cremoso con perlas popping jellys.",
+    id: "bna16", name: "Latte con Jellys (Base Leche)", category: "bebidas", subcategory: "sin_alcohol", price: 99.00,
+    description: "Café frío cremoso con perlas popping jellys. Café y Vainilla o Café y Caramelo.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Trendy",
     options: ["Café y Vainilla", "Café y Caramelo"]
   },
+
+  // ============================================================
+  // BEBIDAS CON ALCOHOL
+  // ============================================================
+  // VINOS
+  {
+    id: "bal1", name: "Lambrusco", category: "bebidas", subcategory: "con_alcohol", price: 115.00,
+    description: "Vino espumante italiano. Copa: $115 | Botella: $420.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Vino",
+    options: ["Copa ($115)", "Botella ($420)"]
+  },
+  {
+    id: "bal2", name: "Vin Quinn", category: "bebidas", subcategory: "con_alcohol", price: 95.00,
+    description: "Vino tinto. Copa: $95 | Botella: $360.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Vino",
+    options: ["Copa ($95)", "Botella ($360)"]
+  },
+  {
+    id: "bal3", name: "Concha y Toro", category: "bebidas", subcategory: "con_alcohol", price: 95.00,
+    description: "Vino chileno clásico. Copa: $95 | Botella: $375.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Vino",
+    options: ["Copa ($95)", "Botella ($375)"]
+  },
   // COCTELES
   {
-    id: "b9", name: "Mojito", category: "bebidas", price: 95.00,
+    id: "bal4", name: "Mojito", category: "bebidas", subcategory: "con_alcohol", price: 95.00,
     description: "Ron, menta, jarabe, jugo de limón, sprite.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
   },
   {
-    id: "b10", name: "Piña Colada", category: "bebidas", price: 99.00,
+    id: "bal5", name: "Piña Colada", category: "bebidas", subcategory: "con_alcohol", price: 99.00,
     description: "Ron, jugo de piña, kalahua y carnation.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
   },
   {
-    id: "b11", name: "Margarita (Elige Sabor)", category: "bebidas", price: 95.00,
-    description: "Tequila, sal, jugo de limón, contoy y squirt. Sabores: Limón, Fresa o Maracuyá.",
+    id: "bal6", name: "Margarita", category: "bebidas", subcategory: "con_alcohol", price: 95.00,
+    description: "Tequila, sal, jugo de limón, contoy y squirt. Elige sabor: Limón, Fresa o Maracuyá.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel", popular: true,
     options: ["Limón", "Fresa", "Maracuyá"]
   },
   {
-    id: "b12", name: "Cantarito", category: "bebidas", price: 95.00,
+    id: "bal7", name: "Cantarito", category: "bebidas", subcategory: "con_alcohol", price: 95.00,
     description: "Tequila, controy, sal, limón, jugo naranja y squirt.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel", popular: true
   },
   {
-    id: "b13", name: "Azulito", category: "bebidas", price: 95.00,
+    id: "bal8", name: "Azulito", category: "bebidas", subcategory: "con_alcohol", price: 95.00,
     description: "Vodka, blue curazo y sprite.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
   },
   {
-    id: "b14", name: "Gin Tonic / Frutos Rojos", category: "bebidas", price: 99.00,
-    description: "Ginebra, jugo de limón y agua tónica con frutos rojos.",
+    id: "bal9", name: "Gin Tonic / Frutos Rojos", category: "bebidas", subcategory: "con_alcohol", price: 99.00,
+    description: "Ginebra, jugo de frutos rojos y agua tónica.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
   },
   {
-    id: "b15", name: "Clericot", category: "bebidas", price: 99.00,
+    id: "bal10", name: "Clericot", category: "bebidas", subcategory: "con_alcohol", price: 99.00,
     description: "Vino tinto, jarabe, jugo limón, sprite, mix de frutos macerados.",
-    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel", popular: true
   },
   {
-    id: "b16", name: "Española", category: "bebidas", price: 92.00,
+    id: "bal11", name: "Española", category: "bebidas", subcategory: "con_alcohol", price: 92.00,
     description: "Vino tinto, cerveza clara, granadina.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
   },
   {
-    id: "b17", name: "Carajillo", category: "bebidas", price: 119.00,
+    id: "bal12", name: "Carajillo", category: "bebidas", subcategory: "con_alcohol", price: 119.00,
     description: "Licor 43, café espresso.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel"
   },
   {
-    id: "b18", name: "Mezcalita (Elige Sabor)", category: "bebidas", price: 115.00,
-    description: "Mezcal artesanal, jugo de limón, sal y jarabe natural. Sabores: Jamaica, Maracuyá o Frutos Rojos.",
+    id: "bal13", name: "Mezcalita", category: "bebidas", subcategory: "con_alcohol", price: 115.00,
+    description: "Mezcal artesanal, jugo de limón, sal, jarabe natural y squirt. Elige sabor: Jamaica, Maracuyá o Frutos Rojos.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Coctel", popular: true,
     options: ["Jamaica", "Maracuyá", "Frutos Rojos"]
   },
-  // CERVEZAS Y MICHELADAS
+  // CERVEZAS
   {
-    id: "b19", name: "Michelada", category: "bebidas", price: 85.00,
-    description: "Clásica: $85. Tamarindo o Mango: $92.",
+    id: "bal14", name: "Cerveza Media (355 ml)", category: "bebidas", subcategory: "con_alcohol", price: 45.00,
+    description: "Media fría $45: Miller, Indio, XX Laguer, Ultra, TKT Light, Heineken, Corona Extra, Corona Light, Pacífico, Pacífico Suave.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Chela",
-    options: ["Clásica ($85)", "Tamarindo ($92)", "Mango ($92)"]
+    options: ["Miller", "Indio", "XX Laguer", "Ultra", "TKT Light", "Heineken", "Corona Extra", "Corona Light", "Pacífico", "Pacífico Suave"]
   },
   {
-    id: "b20", name: "Cerveza Media (355ml)", category: "bebidas", price: 45.00,
-    description: "Miller, Indio, XX Laguer, Ultra, TKT Light, Heineken, Corona Extra, Corona Light, Pacífico, Pacífico Suave — $45. Modelo Especial / Negra Modelo — $55.",
+    id: "bal15", name: "Caguama — Modelo/Negra", category: "bebidas", subcategory: "con_alcohol", price: 55.00,
+    description: "Modelo Especial o Negra Modelo — $55.",
     image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Chela",
-    options: ["Miller $45", "Indio $45", "XX Laguer $45", "Heineken $45", "Corona Extra $45", "Pacífico $45", "Modelo Especial $55", "Negra Modelo $55"]
+    options: ["Modelo Especial ($55)", "Negra Modelo ($55)"]
+  },
+  {
+    id: "bal16", name: "Caguama — Indio/XX/TKT/Miller/Pacífico", category: "bebidas", subcategory: "con_alcohol", price: 65.00,
+    description: "Caguama $65: Indio, XX Laguer, TKT Light, Miller, Pacífico.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Chela",
+    options: ["Indio", "XX Laguer", "TKT Light", "Miller", "Pacífico"]
+  },
+  {
+    id: "bal17", name: "Caguama Modelo Especial (Grande)", category: "bebidas", subcategory: "con_alcohol", price: 75.00,
+    description: "Caguama Modelo Especial grande — $75.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Chela"
+  },
+  // MICHELADAS
+  {
+    id: "bal18", name: "Michelada Clásica", category: "bebidas", subcategory: "con_alcohol", price: 85.00,
+    description: "Michelada clásica preparada con cerveza fría.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Michelada"
+  },
+  {
+    id: "bal19", name: "Michelada Tamarindo", category: "bebidas", subcategory: "con_alcohol", price: 92.00,
+    description: "Michelada preparada con tamarindo.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Michelada"
+  },
+  {
+    id: "bal20", name: "Michelada Mango", category: "bebidas", subcategory: "con_alcohol", price: 92.00,
+    description: "Michelada preparada con mango.",
+    image: "imagenes/fotos del lugar y platillos/bebida-jamaica.jpg", badge: "Michelada"
   }
 ];
 
@@ -838,20 +934,20 @@ function initPromoDayHighlight() {
 
 // --- CATEGORY CONFIG FOR SECTION HEADERS ---
 const CATEGORY_CONFIG = {
-  desayunos:    { label: "Desayunos",              icon: "fa-egg",           subtitle: "Chilaquiles · Omeletes · Huevos · Guisados" },
-  especiales:   { label: "Especiales del Chef",    icon: "fa-star",          subtitle: "Platillos premium de temporada" },
-  ensaladas:    { label: "Ensaladas de la Casa",   icon: "fa-leaf",          subtitle: "Frescas y balanceadas con proteína a elegir" },
-  snacks:       { label: "Para Empezar & Snacks",  icon: "fa-cookie-bite",   subtitle: "Para botanear o compartir" },
-  alitas:       { label: "Alitas & Boneles",       icon: "fa-fire-burner",   subtitle: "6 salsas a elegir · BBQ, Búfalo, Mango/Habanero…" },
-  pizzas:       { label: "Pizzas a la Leña",       icon: "fa-pizza-slice",   subtitle: "Horneadas en horno de leña artesanal" },
-  hamburguesas: { label: "Hamburguesas & Smash",   icon: "fa-burger",        subtitle: "Clásicas, Smash y opciones de pollo" },
-  hotdogs:      { label: "Hot Dogs",               icon: "fa-hotdog",        subtitle: "Dorados y llenos de sabor" },
-  tacos:        { label: "Tacos, Fifís & Quesadillas", icon: "fa-pepper-hot","subtitle": "Tacos Fifís premium · Tacos sencillos · Pellizcadas" },
-  burritas:     { label: "Burritas, Fajitas & Sandwiches", icon: "fa-utensils", subtitle: "Burritas · Baguettes · Fajitas · Club Sandwich" },
-  pastas:       { label: "Pastas",                 icon: "fa-bowl-food",     subtitle: "Fetuccini Alfredo · Pesto · Lasaña a la leña" },
+  desayunos:    { label: "Desayunos",                   icon: "fa-egg",            subtitle: "Chilaquiles · Omeletes · Huevos · Guisados" },
+  especiales:   { label: "Especiales del Chef",         icon: "fa-star",           subtitle: "Platillos premium de temporada" },
+  ensaladas:    { label: "Ensaladas de la Casa",        icon: "fa-leaf",           subtitle: "Frescas y balanceadas con proteína a elegir" },
+  snacks:       { label: "Para Empezar & Snacks",       icon: "fa-cookie-bite",    subtitle: "Para botanear o compartir" },
+  alitas:       { label: "Alitas & Boneles",            icon: "fa-fire-burner",    subtitle: "6 salsas a elegir · BBQ, Búfalo, Mango/Habanero…" },
+  pizzas:       { label: "Pizzas a la Leña",            icon: "fa-pizza-slice",    subtitle: "Horneadas en horno de leña artesanal" },
+  hamburguesas: { label: "Hamburguesas & Smash",        icon: "fa-burger",         subtitle: "Clásicas, Smash y opciones de pollo" },
+  hotdogs:      { label: "Hot Dogs",                    icon: "fa-hotdog",         subtitle: "Dorados y llenos de sabor" },
+  tacos:        { label: "Tacos, Fifís & Quesadillas",  icon: "fa-pepper-hot",     subtitle: "Tacos Fifís premium · Tacos sencillos · Pellizcadas" },
+  burritas:     { label: "Burritas, Fajitas & Sandwiches", icon: "fa-utensils",    subtitle: "Burritas · Baguettes · Fajitas · Club Sandwich" },
+  pastas:       { label: "Pastas",                      icon: "fa-bowl-food",      subtitle: "Fetuccini Alfredo · Pesto · Lasaña a la leña" },
   cortes:       { label: "Cortes de Carne & Parrilladas", icon: "fa-drumstick-bite", subtitle: "Rib Eye · Arrachera · T-Bone · Parrilladas" },
-  postres:      { label: "Postres",                icon: "fa-cookie",        subtitle: "El dulce final perfecto" },
-  bebidas:      { label: "Bebidas & Coctelería",   icon: "fa-wine-glass",    subtitle: "Sin alcohol · Cocteles · Cervezas · Micheladas" }
+  postres:      { label: "Postres",                     icon: "fa-cookie",         subtitle: "El dulce final perfecto" },
+  bebidas:      { label: "Bebidas",                     icon: "fa-wine-glass",     subtitle: "Sin Alcohol · Vinos · Cocteles · Cervezas · Micheladas" }
 };
 
 const CATEGORY_ORDER = [
@@ -889,8 +985,15 @@ function renderMenu() {
 
   // Single category mode: show all items of that category
   if (currentCategory !== "todos") {
-    const filtered = MENU_DATA.filter(item => item.category === currentCategory);
     const cfg = CATEGORY_CONFIG[currentCategory] || { label: currentCategory, icon: "fa-utensils", subtitle: "" };
+    
+    // Special handling for bebidas: show sub-groups Sin Alcohol / Con Alcohol
+    if (currentCategory === "bebidas") {
+      grid.innerHTML = renderBebidasSection(true);
+      return;
+    }
+    
+    const filtered = MENU_DATA.filter(item => item.category === currentCategory);
     grid.innerHTML = `
       ${renderSectionHeader(cfg, filtered.length)}
       <div class="col-span-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
@@ -909,14 +1012,19 @@ function renderMenu() {
     const items = MENU_DATA.filter(item => item.category === cat);
     if (items.length === 0) return;
     const cfg = CATEGORY_CONFIG[cat] || { label: cat, icon: "fa-utensils", subtitle: "" };
-    html += `
-      <div class="col-span-full" id="section-${cat}">
-        ${renderSectionHeader(cfg, items.length)}
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-          ${items.map(item => renderItemCard(item)).join('')}
+
+    if (cat === "bebidas") {
+      html += `<div class="col-span-full" id="section-bebidas">${renderBebidasSection(false)}</div>`;
+    } else {
+      html += `
+        <div class="col-span-full" id="section-${cat}">
+          ${renderSectionHeader(cfg, items.length)}
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+            ${items.map(item => renderItemCard(item)).join('')}
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    }
   });
   grid.innerHTML = html;
 
@@ -955,6 +1063,48 @@ function renderSectionHeader(cfg, count) {
     </div>
   `;
 }
+
+// --- RENDER BEBIDAS WITH INTERNAL SUB-GROUPS ---
+function renderBebidasSection() {
+  const cfg = CATEGORY_CONFIG["bebidas"];
+  const allBebidas = MENU_DATA.filter(item => item.category === "bebidas");
+  const sinAlcohol = allBebidas.filter(item => item.subcategory === "sin_alcohol");
+  const conAlcohol = allBebidas.filter(item => item.subcategory === "con_alcohol");
+  const total = allBebidas.length;
+
+  const subHeaderNA = `
+    <div class="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-2 pt-3 pb-1 mt-2">
+      <div class="flex-shrink-0 w-7 h-7 rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center">
+        <i class="fa-solid fa-glass-water text-sky-500 text-xs"></i>
+      </div>
+      <span class="font-extrabold text-stone-800 text-sm">Sin Alcohol</span>
+      <span class="text-[10px] text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">${sinAlcohol.length} opciones</span>
+      <div class="flex-1 h-px bg-stone-200"></div>
+    </div>
+  `;
+
+  const subHeaderAL = `
+    <div class="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center gap-2 pt-5 pb-1 mt-2 border-t border-stone-100">
+      <div class="flex-shrink-0 w-7 h-7 rounded-full bg-red-50 border border-red-200 flex items-center justify-center">
+        <i class="fa-solid fa-wine-glass text-[#c04828] text-xs"></i>
+      </div>
+      <span class="font-extrabold text-stone-800 text-sm">Con Alcohol</span>
+      <span class="text-[10px] text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">${conAlcohol.length} opciones</span>
+      <div class="flex-1 h-px bg-stone-200"></div>
+    </div>
+  `;
+
+  return `
+    ${renderSectionHeader(cfg, total)}
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+      ${subHeaderNA}
+      ${sinAlcohol.map(item => renderItemCard(item)).join('')}
+      ${subHeaderAL}
+      ${conAlcohol.map(item => renderItemCard(item)).join('')}
+    </div>
+  `;
+}
+
 
 function renderItemCard(item) {
   const priceDisplay = item.price === 0 ? '<span class="font-bold text-[#1e6b52] text-xs whitespace-nowrap">Consultar</span>' : `<span class="font-bold text-[#c04828] text-sm whitespace-nowrap">$${item.price.toFixed(2)}</span>`;
@@ -1341,3 +1491,4 @@ function setupEventListeners() {
     });
   });
 }
+
