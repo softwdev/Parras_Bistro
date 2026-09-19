@@ -1,0 +1,1 @@
+Al ingresar al sitio web se muestran todos los platillos por tipo de platillo o bebida, sin embargo no existe el boton "Todos" el cual deberia estar seleccionado por defecto, solo existen los demas botones()

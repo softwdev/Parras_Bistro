@@ -105,6 +105,51 @@
     </div>
   </section>
 
+  <!-- ==================== CARTA DIGITAL & MENÚ (COMPACT NAVIGATION SYSTEM) ==================== -->
+  <section id="menu" class="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-2xl mx-auto mb-6">
+      <span class="text-[10px] font-extrabold tracking-widest text-[#1e6b52] uppercase bg-[#e8f4f0] px-2.5 py-1 rounded-full">Carta Digital</span>
+      <h2 class="font-serif text-2xl sm:text-4xl font-bold text-stone-900 mt-2">Menú de Desayunos, Cenas & Coctelería</h2>
+    </div>
+
+    <!-- Search Input Bar -->
+    <div class="mb-5 max-w-md mx-auto">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+        <input id="menu-search-input" type="text" placeholder="Buscar platillo, pizza, boneless..." class="w-full pl-9 pr-4 py-2.5 bg-white border border-stone-300 rounded-full text-xs shadow-sm focus:ring-2 focus:ring-[#c04828] outline-none">
+      </div>
+    </div>
+
+    <!-- Category Tabs Filter -->
+    <div id="menu-tabs-strip" class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-6 no-scrollbar">
+      <button data-category="todos"        onclick="filterCategory('todos', this)"        class="menu-tab-btn active"><i class="fa-solid fa-border-all text-xs"></i> Todos</button>
+      <button data-category="desayunos"    onclick="filterCategory('desayunos', this)"    class="menu-tab-btn"><i class="fa-solid fa-egg text-xs"></i> Desayunos</button>
+      <button data-category="especiales"   onclick="filterCategory('especiales', this)"   class="menu-tab-btn"><i class="fa-solid fa-star text-xs"></i> Especiales</button>
+      <button data-category="pizzas"       onclick="filterCategory('pizzas', this)"       class="menu-tab-btn"><i class="fa-solid fa-pizza-slice text-xs"></i> Pizzas</button>
+      <button data-category="hamburguesas" onclick="filterCategory('hamburguesas', this)" class="menu-tab-btn"><i class="fa-solid fa-burger text-xs"></i> Hamburguesas</button>
+      <button data-category="hotdogs"      onclick="filterCategory('hotdogs', this)"      class="menu-tab-btn"><i class="fa-solid fa-hotdog text-xs"></i> Hot Dogs</button>
+      <button data-category="cortes"       onclick="filterCategory('cortes', this)"       class="menu-tab-btn"><i class="fa-solid fa-drumstick-bite text-xs"></i> Cortes</button>
+      <button data-category="tacos"        onclick="filterCategory('tacos', this)"        class="menu-tab-btn"><i class="fa-solid fa-pepper-hot text-xs"></i> Tacos</button>
+      <button data-category="burritas"     onclick="filterCategory('burritas', this)"     class="menu-tab-btn"><i class="fa-solid fa-utensils text-xs"></i> Burritas</button>
+      <button data-category="pastas"       onclick="filterCategory('pastas', this)"       class="menu-tab-btn"><i class="fa-solid fa-bowl-food text-xs"></i> Pastas</button>
+      <button data-category="ensaladas"    onclick="filterCategory('ensaladas', this)"    class="menu-tab-btn"><i class="fa-solid fa-leaf text-xs"></i> Ensaladas</button>
+      <button data-category="alitas"       onclick="filterCategory('alitas', this)"       class="menu-tab-btn"><i class="fa-solid fa-fire-burner text-xs"></i> Alitas & Boneles</button>
+      <button data-category="snacks"       onclick="filterCategory('snacks', this)"       class="menu-tab-btn"><i class="fa-solid fa-cookie-bite text-xs"></i> Snacks</button>
+      <button data-category="postres"      onclick="filterCategory('postres', this)"      class="menu-tab-btn"><i class="fa-solid fa-cookie text-xs"></i> Postres</button>
+      <button data-category="bebidas"      onclick="filterCategory('bebidas', this)"      class="menu-tab-btn"><i class="fa-solid fa-wine-glass text-xs"></i> Bebidas</button>
+    </div>
+
+    <!-- Full Menu Grouped by Category — rendered by app.js renderMenu() -->
+    <div id="menu-grid" class="space-y-2">
+      <!-- Dynamic Items injected by renderMenu() -->
+    </div>
+
+    <!-- Expand container (kept for compatibility) -->
+    <div id="menu-expand-container" class="mt-4 text-center"></div>
+
+  </section>
+
   <!-- ==================== PROMOCIONES DEL DÍA (HORIZONTAL SLIDER ON MOBILE) ==================== -->
   <section id="promociones" class="py-8 sm:py-14 bg-white border-y border-stone-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,51 +211,6 @@
     </div>
   </section>
 
-  <!-- ==================== CARTA DIGITAL & MENÚ (COMPACT NAVIGATION SYSTEM) ==================== -->
-  <section id="menu" class="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="text-center max-w-2xl mx-auto mb-6">
-      <span class="text-[10px] font-extrabold tracking-widest text-[#1e6b52] uppercase bg-[#e8f4f0] px-2.5 py-1 rounded-full">Carta Digital</span>
-      <h2 class="font-serif text-2xl sm:text-4xl font-bold text-stone-900 mt-2">Menú de Desayunos, Cenas & Coctelería</h2>
-    </div>
-
-    <!-- Search Input Bar -->
-    <div class="mb-5 max-w-md mx-auto">
-      <div class="relative">
-        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
-        <input id="menu-search-input" type="text" placeholder="Buscar platillo, pizza, boneless..." class="w-full pl-9 pr-4 py-2.5 bg-white border border-stone-300 rounded-full text-xs shadow-sm focus:ring-2 focus:ring-[#c04828] outline-none">
-      </div>
-    </div>
-
-    <!-- Category Tabs Filter -->
-    <div class="flex items-center gap-1.5 overflow-x-auto pb-3 mb-6 no-scrollbar justify-start md:justify-center">
-      <button onclick="filterCategory('todos', this)" class="menu-tab-btn active"><i class="fa-solid fa-border-all text-xs"></i> Todos</button>
-      <button onclick="filterCategory('desayunos', this)" class="menu-tab-btn"><i class="fa-solid fa-egg text-xs"></i> Desayunos</button>
-      <button onclick="filterCategory('especiales', this)" class="menu-tab-btn"><i class="fa-solid fa-star text-xs"></i> Especiales</button>
-      <button onclick="filterCategory('pizzas', this)" class="menu-tab-btn"><i class="fa-solid fa-pizza-slice text-xs"></i> Pizzas</button>
-      <button onclick="filterCategory('hamburguesas', this)" class="menu-tab-btn"><i class="fa-solid fa-burger text-xs"></i> Hamburguesas</button>
-      <button onclick="filterCategory('hotdogs', this)" class="menu-tab-btn"><i class="fa-solid fa-hotdog text-xs"></i> Hot Dogs</button>
-      <button onclick="filterCategory('cortes', this)" class="menu-tab-btn"><i class="fa-solid fa-drumstick-bite text-xs"></i> Cortes</button>
-      <button onclick="filterCategory('tacos', this)" class="menu-tab-btn"><i class="fa-solid fa-pepper-hot text-xs"></i> Tacos</button>
-      <button onclick="filterCategory('burritas', this)" class="menu-tab-btn"><i class="fa-solid fa-utensils text-xs"></i> Burritas</button>
-      <button onclick="filterCategory('pastas', this)" class="menu-tab-btn"><i class="fa-solid fa-bowl-food text-xs"></i> Pastas</button>
-      <button onclick="filterCategory('ensaladas', this)" class="menu-tab-btn"><i class="fa-solid fa-leaf text-xs"></i> Ensaladas</button>
-      <button onclick="filterCategory('alitas', this)" class="menu-tab-btn"><i class="fa-solid fa-fire-burner text-xs"></i> Alitas & Boneles</button>
-      <button onclick="filterCategory('snacks', this)" class="menu-tab-btn"><i class="fa-solid fa-cookie-bite text-xs"></i> Snacks</button>
-      <button onclick="filterCategory('postres', this)" class="menu-tab-btn"><i class="fa-solid fa-cookie text-xs"></i> Postres</button>
-      <button onclick="filterCategory('bebidas', this)" class="menu-tab-btn"><i class="fa-solid fa-wine-glass text-xs"></i> Bebidas</button>
-    </div>
-
-    <!-- Full Menu Grouped by Category — rendered by app.js renderMenu() -->
-    <div id="menu-grid" class="space-y-2">
-      <!-- Dynamic Items injected by renderMenu() -->
-    </div>
-
-    <!-- Expand container (kept for compatibility) -->
-    <div id="menu-expand-container" class="mt-4 text-center"></div>
-
-  </section>
-
   <!-- ==================== CATERING & EVENTOS PRIVADOS (REACHABLE FAST) ==================== -->
   <section id="catering" class="py-12 sm:py-20 bg-stone-900 text-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -236,7 +236,7 @@
             <div class="flex items-center gap-1.5"><i class="fa-solid fa-cake-candles text-amber-400"></i> Cumpleaños</div>
             <div class="flex items-center gap-1.5"><i class="fa-solid fa-ring text-amber-400"></i> Bodas & Aniversarios</div>
             <div class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-amber-400"></i> Graduaciones</div>
-            <div class="flex items-center gap-1.5"><i class="fa-solid fa-briefcase text-amber-400"></i> Eventos Empresa</div>
+            <div class="flex items-center gap-1.5"><i class="fa-solid fa-event text-amber-400"></i> Otro tipo de evento</div>
           </div>
 
           <!-- Photo Strip -->
@@ -252,58 +252,21 @@
           <div class="bg-stone-800 p-5 sm:p-8 rounded-2xl border border-white/10 shadow-xl">
             <h3 class="font-serif text-lg sm:text-xl font-bold text-white mb-3">Cotiza tu Evento por WhatsApp</h3>
 
-            <form onsubmit="sendCateringQuote(event)" class="space-y-3">
-              <div class="grid grid-cols-2 gap-2.5">
-                <div>
-                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Nombre:</label>
-                  <input type="text" id="cat-name" required placeholder="Tu nombre" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
-                </div>
-                <div>
-                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Teléfono:</label>
-                  <input type="tel" id="cat-phone" required placeholder="311 XXX XXXX" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
-                </div>
+            <div class="space-y-4 text-center mt-6">
+              <i class="fa-solid fa-phone-volume text-4xl text-[#c04828] mb-2"></i>
+              <p class="text-stone-300 text-sm">
+                Para brindarte la mejor atención y personalizar tu evento, te invitamos a comunicarte directamente con nosotros.
+              </p>
+              <div class="flex flex-col gap-3 mt-4">
+                <a href="tel:+523231239895" class="w-full py-3 bg-[#c04828] hover:bg-[#a2381c] text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
+                  <i class="fa-solid fa-phone"></i> Llamar al 323 123 9895
+                </a>
+                <a href="https://wa.me/523231239895" target="_blank" class="w-full py-3 bg-stone-700 hover:bg-stone-600 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
+                  <i class="fa-brands fa-whatsapp text-sm"></i> Mensaje por WhatsApp
+                </a>
               </div>
-
-              <div class="grid grid-cols-2 gap-2.5">
-                <div>
-                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Tipo de Evento:</label>
-                  <select id="cat-event-type" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
-                    <option value="Cumpleaños">Cumpleaños</option>
-                    <option value="Boda / Aniversario">Boda / Aniversario</option>
-                    <option value="Graduación">Graduación</option>
-                    <option value="Evento Empresarial">Evento Empresarial</option>
-                    <option value="Posada / Celebración">Posada / Celebración</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Invitados:</label>
-                  <input type="number" id="cat-guests" min="10" max="500" value="30" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-2 gap-2.5">
-                <div>
-                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Lugar:</label>
-                  <select id="cat-location" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
-                    <option value="En Restaurante Parra's Bistro">En Parra's Bistro</option>
-                    <option value="A Domicilio / Salón Particular">A Domicilio / Particular</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Fecha:</label>
-                  <input type="date" id="cat-date" class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]">
-                </div>
-              </div>
-
-              <div>
-                <label class="block text-[10px] font-bold text-stone-300 uppercase mb-1">Detalles / Menú deseado:</label>
-                <textarea id="cat-details" rows="2" placeholder="Ej. Taquiza, parrillada, pizzas o bocadillos..." class="w-full bg-stone-900 border border-stone-700 rounded-lg px-3 py-2 text-xs text-white outline-none focus:ring-1 focus:ring-[#c04828]"></textarea>
-              </div>
-
-              <button type="submit" class="w-full py-3 bg-[#c04828] hover:bg-[#a2381c] text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
-                <i class="fa-brands fa-whatsapp text-sm"></i> Solicitar Cotización de Catering
-              </button>
-            </form>
+              <p class="text-[14px] text-stone-400 mt-3">También puedes visitarnos presencialmente con anticipación para planear todos los detalles.</p>
+            </div>
           </div>
         </div>
 
@@ -322,62 +285,20 @@
           <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-2">Reservación en Parra's Bistro</h2>
         </div>
 
-        <form onsubmit="sendReservation(event)" class="space-y-3 text-xs">
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block font-bold text-stone-700 mb-1">Tu Nombre:</label>
-              <input type="text" id="res-name" required placeholder="Nombre completo" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
-            </div>
-            <div>
-              <label class="block font-bold text-stone-700 mb-1">WhatsApp:</label>
-              <input type="tel" id="res-phone" required placeholder="311 XXX XXXX" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
-            </div>
+        <div class="space-y-4 text-center mt-6">
+          <i class="fa-solid fa-calendar-check text-4xl text-[#1e6b52] mb-2"></i>
+          <p class="text-stone-600 text-sm max-w-md mx-auto">
+            Para asegurar tu mesa en la fecha y horario que deseas, te recomendamos llamarnos o visitarnos presencialmente con anticipación.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center mt-4 max-w-md mx-auto">
+            <a href="tel:+523111481757" class="w-full py-3 bg-[#1e6b52] hover:bg-[#15503d] text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+              <i class="fa-solid fa-phone"></i> Llamar al 311 148 1757
+            </a>
+            <a href="https://wa.me/523111481757" target="_blank" class="w-full py-3 bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold border border-stone-300 rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
           </div>
-
-          <div class="grid grid-cols-3 gap-3">
-            <div>
-              <label class="block font-bold text-stone-700 mb-1">Personas:</label>
-              <select id="res-guests" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-2 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
-                <option value="2 Personas">2 personas</option>
-                <option value="4 Personas">4 personas</option>
-                <option value="6 Personas">6 personas</option>
-                <option value="8+ Personas">8+ personas</option>
-              </select>
-            </div>
-            <div>
-              <label class="block font-bold text-stone-700 mb-1">Fecha:</label>
-              <input type="date" id="res-date" required class="w-full bg-stone-50 border border-stone-300 rounded-lg px-2 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
-            </div>
-            <div>
-              <label class="block font-bold text-stone-700 mb-1">Hora:</label>
-              <select id="res-time" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-2 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
-                <option value="09:00 AM">09:00 AM</option>
-                <option value="11:00 AM">11:00 AM</option>
-                <option value="02:00 PM">02:00 PM</option>
-                <option value="07:00 PM">07:00 PM</option>
-                <option value="09:00 PM">09:00 PM</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block font-bold text-stone-700 mb-1">Zona:</label>
-              <select id="res-zone" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
-                <option value="Comedor Principal">Comedor Principal</option>
-                <option value="Terraza al Aire Libre">Terraza al Aire Libre</option>
-              </select>
-            </div>
-            <div>
-              <label class="block font-bold text-stone-700 mb-1">Motivo (Opcional):</label>
-              <input type="text" id="res-occasion" placeholder="Ej. Cumpleaños, Cita" class="w-full bg-stone-50 border border-stone-300 rounded-lg px-3 py-2 outline-none focus:ring-1 focus:ring-[#1e6b52]">
-            </div>
-          </div>
-
-          <button type="submit" class="w-full py-3 bg-[#1e6b52] hover:bg-[#15503d] text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 text-xs">
-            <i class="fa-solid fa-calendar-check"></i> Reservar Mesa por WhatsApp
-          </button>
-        </form>
+        </div>
       </div>
 
     </div>
@@ -389,27 +310,58 @@
       
       <div class="grid md:grid-cols-2 gap-8 items-center">
         
-        <div class="space-y-3">
-          <span class="text-[10px] font-extrabold tracking-widest text-[#1e6b52] uppercase bg-[#e8f4f0] px-2.5 py-1 rounded-full">Ubicación</span>
-          <h2 class="font-serif text-2xl font-bold text-stone-900">Santiago Ixcuintla, Nayarit</h2>
-          <p class="text-stone-600 text-xs">M. Ponce #54 / #56, entre Prol. Jiménez y 2da de Torres. C.P. 63321.</p>
-          <p class="text-xs text-stone-700 font-semibold">Miércoles a Lunes: Desayunos & Cenas (Martes Cerrado).</p>
+        <!-- Info Column -->
+        <div class="space-y-4">
+          <div>
+            <span class="text-[10px] font-extrabold tracking-widest text-[#1e6b52] uppercase bg-[#e8f4f0] px-2.5 py-1 rounded-full">Ubicación</span>
+            <h2 class="font-serif text-2xl font-bold text-stone-900 mt-2">Santiago Ixcuintla, Nayarit</h2>
+            <p class="text-stone-600 text-sm mt-1">M. Ponce #54 / #56, entre Prol. Jiménez y 2da de Torres. C.P. 63321.</p>
+          </div>
           
-          <div class="flex items-center gap-2 pt-2">
-            <a href="https://wa.me/523111481757" target="_blank" class="px-3.5 py-2 bg-[#25D366] text-white text-xs font-bold rounded-xl flex items-center gap-1.5">
-              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          <div class="bg-stone-50 border border-stone-200 p-4 rounded-xl">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm text-stone-800 font-bold"><i class="fa-regular fa-clock text-[#c04828] mr-1.5"></i> Horario de Servicio</h3>
+              <div class="schedule-status-badge"></div>
+            </div>
+            
+            <div class="space-y-1.5 ml-5 mb-4 text-xs">
+              <div class="flex justify-between text-stone-600">
+                <span class="font-semibold text-stone-700">Miércoles a Lunes</span>
+                <div class="text-right font-medium">
+                  <p>8:00 a.m. - 1:30 p.m.</p>
+                  <p>5:30 p.m. - 10:30 p.m.</p>
+                </div>
+              </div>
+              <div class="flex justify-between items-center text-stone-600 pt-1.5 border-t border-stone-200/60 mt-1.5">
+                <span class="font-semibold text-stone-700">Martes</span>
+                <span class="text-[#c04828] font-bold">CERRADO</span>
+              </div>
+            </div>
+
+            <p class="text-stone-800 font-bold text-sm border-t border-stone-200 pt-3"><i class="fa-solid fa-phone text-[#c04828] mr-1.5"></i> 311 148 1757 / 323 123 9895</p>
+          </div>
+          
+          <div class="flex items-center gap-2 pt-1">
+            <a href="https://wa.me/523111481757" target="_blank" class="flex-1 sm:flex-none justify-center px-4 py-2.5 bg-[#25D366] text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm hover:bg-[#1fae54] transition">
+              <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
             </a>
-            <a href="https://maps.app.goo.gl/4WcAq36d7pBhisYa9" target="_blank" class="px-3.5 py-2 bg-[#c04828] text-white text-xs font-bold rounded-xl flex items-center gap-1.5">
-              <i class="fa-solid fa-map-location-dot"></i> Google Maps
+            <a href="https://maps.app.goo.gl/4WcAq36d7pBhisYa9" target="_blank" class="flex-1 sm:flex-none justify-center px-4 py-2.5 bg-[#c04828] text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm hover:bg-[#a2381c] transition">
+              <i class="fa-solid fa-diamond-turn-right text-sm"></i> Cómo llegar
             </a>
           </div>
         </div>
 
-        <!-- Small Location Card -->
-        <div class="bg-stone-900 text-white p-6 rounded-2xl relative overflow-hidden border border-stone-800">
-          <h3 class="font-serif text-xl font-bold mb-1">Parra's Bistro</h3>
-          <p class="text-xs text-stone-400 mb-3">Servicio de todo tipo de comida para cualquier tipo de evento.</p>
-          <span class="text-amber-400 font-bold text-xs"><i class="fa-solid fa-phone"></i> 311 148 1757 / 323 123 9895</span>
+        <!-- Google Maps iframe -->
+        <div class="rounded-2xl overflow-hidden border border-stone-200 shadow-md h-64 sm:h-80 w-full relative bg-stone-100">
+          <iframe 
+            src="https://maps.google.com/maps?q=Parra's%20Bistro,%20Santiago%20Ixcuintla,%20Nayarit&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
 
       </div>

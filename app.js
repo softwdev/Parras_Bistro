@@ -761,22 +761,63 @@ document.addEventListener("DOMContentLoaded", () => {
   renderGallery("todos");
   updateCartBadge();
   setupEventListeners();
+
+  // Always reset the tab strip to show "Todos" (first button) on load
+  const strip = document.getElementById("menu-tabs-strip");
+  if (strip) strip.scrollLeft = 0;
 });
 
 // --- SCHEDULE CHECKER (Miércoles a Lunes) ---
 function initScheduleStatus() {
-  const statusBadge = document.getElementById("schedule-status-badge");
-  if (!statusBadge) return;
+  const statusBadges = document.querySelectorAll(".schedule-status-badge, #schedule-status-badge");
+  if (statusBadges.length === 0) return;
 
-  const day = new Date().getDay(); // 0: Sun, 1: Mon, 2: Tue, 3: Wed, 4: Thu, 5: Fri, 6: Sat
+  const now = new Date();
+  const day = now.getDay(); // 0: Sun, 1: Mon, 2: Tue, 3: Wed, 4: Thu, 5: Fri, 6: Sat
+  const hour = now.getHours();
+  const min = now.getMinutes();
+  
+  // Convert current time to a float for easier comparison (e.g. 13:30 is 13.5)
+  const currentTime = hour + (min / 60);
+  
+  const isMorningShift = currentTime >= 8.0 && currentTime < 13.5;
+  const isEveningShift = currentTime >= 17.5 && currentTime < 22.5;
+  
+  const isOpen = day !== 2 && (isMorningShift || isEveningShift);
+
+  let badgeClass = "";
+  let badgeHTML = "";
 
   if (day === 2) {
-    statusBadge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200";
-    statusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-500"></span> CERRADO HOY (Abre Miér)`;
+    badgeClass = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200 shadow-sm";
+    badgeHTML = `<span class="w-2 h-2 rounded-full bg-red-500"></span> Cerrado Hoy (Abre el Miércoles)`;
+  } else if (isOpen) {
+    badgeClass = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 shadow-sm";
+    badgeHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Abierto Ahora`;
   } else {
-    statusBadge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200";
-    statusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> ABIERTO HOY • Desayuno & Cena`;
+    // It's not Tuesday, but it's outside opening hours
+    badgeClass = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200 shadow-sm";
+    
+    let nextOpenText = "";
+    if (currentTime < 8.0) {
+      nextOpenText = "Abre hoy a las 8:00 a.m.";
+    } else if (currentTime >= 13.5 && currentTime < 17.5) {
+      nextOpenText = "Abre hoy a las 5:30 p.m.";
+    } else if (currentTime >= 22.5) {
+      if (day === 1) { // Monday night -> opens Wednesday
+        nextOpenText = "Abre el Miércoles a las 8:00 a.m.";
+      } else {
+        nextOpenText = "Abre mañana a las 8:00 a.m.";
+      }
+    }
+
+    badgeHTML = `<span class="w-2 h-2 rounded-full bg-amber-500"></span> Cerrado Ahora (${nextOpenText})`;
   }
+
+  statusBadges.forEach(badge => {
+    badge.className = badgeClass;
+    badge.innerHTML = badgeHTML;
+  });
 }
 
 // --- PROMO DAY HIGHLIGHT ---
@@ -861,7 +902,10 @@ function renderMenu() {
 
   // "Todos" mode: show all categories as sections
   let html = "";
-  CATEGORY_ORDER.forEach(cat => {
+  const VISIBLE_CATEGORIES_LIMIT = 7;
+  const categoriesToShow = isExpandedCategory ? CATEGORY_ORDER : CATEGORY_ORDER.slice(0, VISIBLE_CATEGORIES_LIMIT);
+
+  categoriesToShow.forEach(cat => {
     const items = MENU_DATA.filter(item => item.category === cat);
     if (items.length === 0) return;
     const cfg = CATEGORY_CONFIG[cat] || { label: cat, icon: "fa-utensils", subtitle: "" };
@@ -875,19 +919,39 @@ function renderMenu() {
     `;
   });
   grid.innerHTML = html;
+
+  // Add expand / collapse button for "Todos"
+  if (expandContainer) {
+    if (!isExpandedCategory && CATEGORY_ORDER.length > VISIBLE_CATEGORIES_LIMIT) {
+      const hiddenCount = CATEGORY_ORDER.length - VISIBLE_CATEGORIES_LIMIT;
+      expandContainer.innerHTML = `
+        <button onclick="toggleExpandMenu()" class="w-full sm:w-auto px-6 py-3 bg-stone-900 hover:bg-[#c04828] text-white font-bold text-xs rounded-full shadow-lg transition flex items-center justify-center gap-2 mx-auto">
+          <span>Ver ${hiddenCount} categorías más</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      `;
+    } else if (isExpandedCategory) {
+      expandContainer.innerHTML = `
+        <button onclick="toggleExpandMenu()" class="w-full sm:w-auto px-6 py-2.5 bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xs rounded-full transition flex items-center justify-center gap-2 mx-auto">
+          <span>Mostrar menos menú</span>
+          <i class="fa-solid fa-chevron-up"></i>
+        </button>
+      `;
+    }
+  }
 }
 
 function renderSectionHeader(cfg, count) {
   return `
-    <div class="col-span-full flex items-center gap-3 mb-2 mt-4 pt-4 border-t border-stone-200 first:border-0 first:mt-0 first:pt-0">
-      <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#c04828]/10 flex items-center justify-center">
-        <i class="fa-solid ${cfg.icon} text-[#c04828] text-sm"></i>
+    <div class="col-span-full flex items-center gap-3 sm:gap-4 mb-4 mt-8 pt-6 border-t-2 border-stone-200 first:border-0 first:mt-0 first:pt-0">
+      <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#c04828]/10 flex items-center justify-center border border-[#c04828]/20">
+        <i class="fa-solid ${cfg.icon} text-[#c04828] text-base sm:text-lg"></i>
       </div>
       <div class="flex-1 min-w-0">
-        <h3 class="font-serif text-base font-bold text-stone-900 leading-tight">${cfg.label}</h3>
-        ${cfg.subtitle ? `<p class="text-[10px] text-stone-400 leading-tight truncate">${cfg.subtitle}</p>` : ''}
+        <h3 class="font-serif text-xl sm:text-2xl font-extrabold text-stone-900 leading-tight">${cfg.label}</h3>
+        ${cfg.subtitle ? `<p class="text-xs text-stone-500 leading-tight truncate mt-0.5">${cfg.subtitle}</p>` : ''}
       </div>
-      <span class="flex-shrink-0 text-[10px] font-bold text-stone-400 bg-stone-100 px-2 py-0.5 rounded-full">${count} opciones</span>
+      <span class="flex-shrink-0 text-[10px] sm:text-xs font-bold text-stone-500 bg-stone-100 border border-stone-200 px-2.5 py-1 rounded-full">${count} opciones</span>
     </div>
   `;
 }
@@ -929,6 +993,10 @@ function renderItemCard(item) {
 function toggleExpandMenu() {
   isExpandedCategory = !isExpandedCategory;
   renderMenu();
+  if (!isExpandedCategory) {
+    const menuSection = document.getElementById("menu");
+    if (menuSection) menuSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 // --- CATEGORY FILTERING ---
@@ -936,8 +1004,25 @@ function filterCategory(category, btnElement) {
   currentCategory = category;
   isExpandedCategory = false;
 
+  // Remove active from all tabs
   document.querySelectorAll(".menu-tab-btn").forEach(b => b.classList.remove("active"));
-  if (btnElement) btnElement.classList.add("active");
+
+  // If a button element was passed, use it; otherwise find it by data-category
+  let activeBtn = btnElement;
+  if (!activeBtn) {
+    activeBtn = document.querySelector(`.menu-tab-btn[data-category="${category}"]`);
+  }
+  if (activeBtn) {
+    activeBtn.classList.add("active");
+    // Scroll the tab WITHIN the strip (not the whole page)
+    const strip = document.getElementById("menu-tabs-strip");
+    if (strip) {
+      const btnLeft = activeBtn.offsetLeft;
+      const btnWidth = activeBtn.offsetWidth;
+      const stripWidth = strip.offsetWidth;
+      strip.scrollLeft = btnLeft - (stripWidth / 2) + (btnWidth / 2);
+    }
+  }
 
   renderMenu();
   // Scroll menu section into view smoothly on mobile
@@ -1074,15 +1159,28 @@ function sendWhatsAppOrder() {
     return;
   }
 
-  const customerName = document.getElementById("cart-client-name").value.trim() || "Cliente";
+  const customerName = document.getElementById("cart-client-name").value.trim();
   const orderType = document.getElementById("cart-order-type").value;
   const address = document.getElementById("cart-address").value.trim();
   const notes = document.getElementById("cart-notes").value.trim();
 
+  // Validations
+  if (!customerName) {
+    showToast("Por favor, ingresa tu nombre para el pedido", "error");
+    document.getElementById("cart-client-name").focus();
+    return;
+  }
+
+  if (orderType === "Domicilio" && !address) {
+    showToast("Por favor, ingresa tu dirección para el envío a domicilio", "error");
+    document.getElementById("cart-address").focus();
+    return;
+  }
+
   let message = `🍷 *NUEVO PEDIDO - PARRA'S BISTRO* 🍷\n`;
   message += `👤 *Cliente:* ${customerName}\n`;
   message += `📌 *Modalidad:* ${orderType}\n`;
-  if (orderType === "Domicilio" && address) {
+  if (orderType === "Domicilio") {
     message += `📍 *Dirección:* ${address}\n`;
   }
   message += `\n📋 *DETALLE DEL PEDIDO:*\n`;
@@ -1106,56 +1204,6 @@ function sendWhatsAppOrder() {
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
 }
 
-// --- CATERING QUOTE GENERATOR ---
-function sendCateringQuote(e) {
-  e.preventDefault();
-  const name = document.getElementById("cat-name").value.trim();
-  const phone = document.getElementById("cat-phone").value.trim();
-  const eventType = document.getElementById("cat-event-type").value;
-  const guests = document.getElementById("cat-guests").value;
-  const location = document.getElementById("cat-location").value;
-  const date = document.getElementById("cat-date").value;
-  const details = document.getElementById("cat-details").value.trim();
-
-  let msg = `✨ *COTIZACIÓN DE CATERING / EVENTO PRIVADO* ✨\n`;
-  msg += `*Parra's Bistro Catering*\n\n`;
-  msg += `👤 *Nombre:* ${name}\n`;
-  msg += `📞 *Teléfono:* ${phone}\n`;
-  msg += `🎉 *Tipo de Evento:* ${eventType}\n`;
-  msg += `👥 *Invitados:* ${guests} personas\n`;
-  msg += `📍 *Lugar:* ${location}\n`;
-  if (date) msg += `📅 *Fecha:* ${date}\n`;
-  if (details) msg += `📝 *Detalles:* ${details}\n`;
-
-  msg += `\nHola! Deseo cotizar mi evento con Parra's Bistro. Quedo en espera de información.`;
-
-  window.open(`https://wa.me/523231239895?text=${encodeURIComponent(msg)}`, "_blank");
-}
-
-// --- TABLE RESERVATION HANDLER ---
-function sendReservation(e) {
-  e.preventDefault();
-  const name = document.getElementById("res-name").value.trim();
-  const phone = document.getElementById("res-phone").value.trim();
-  const guests = document.getElementById("res-guests").value;
-  const date = document.getElementById("res-date").value;
-  const time = document.getElementById("res-time").value;
-  const zone = document.getElementById("res-zone").value;
-  const occasion = document.getElementById("res-occasion").value.trim();
-
-  let msg = `🍽️ *RESERVACIÓN DE MESA - PARRA'S BISTRO* 🍽️\n\n`;
-  msg += `👤 *Nombre:* ${name}\n`;
-  msg += `📞 *Teléfono:* ${phone}\n`;
-  msg += `👥 *Personas:* ${guests}\n`;
-  msg += `📅 *Fecha:* ${date}\n`;
-  msg += `⏰ *Hora:* ${time}\n`;
-  msg += `🪑 *Zona:* ${zone}\n`;
-  if (occasion) msg += `🎉 *Motivo:* ${occasion}\n`;
-
-  msg += `\nSolicito confirmación de disponibilidad para mi mesa. ¡Gracias!`;
-
-  window.open(`https://wa.me/523111481757?text=${encodeURIComponent(msg)}`, "_blank");
-}
 
 // --- GALLERY LIGHTBOX ---
 function renderGallery(cat) {
